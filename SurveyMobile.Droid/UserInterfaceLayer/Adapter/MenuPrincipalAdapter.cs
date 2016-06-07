@@ -8,14 +8,9 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Adapter
 {
     public class MenuPrincipalAdapter : RecyclerView.Adapter
     {
-        private string[] _itens;
         private List<ListItem> _listItems;
-        MenuPrincipalViewHolder vh;
-
-        //public MenuPrincipalAdapter(string[] itens)
-        //{
-        //    _itens = itens;
-        //}
+        private MenuPrincipalViewHolder vh;
+        public Type pageType;
 
         public MenuPrincipalAdapter(List<ListItem> listItem)
         {
@@ -30,20 +25,21 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Adapter
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             vh.textView.Text = _listItems[position].Title;
+            vh.textView.Click += textView_Click;
         }
-
+                
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View v = LayoutInflater.FromContext(parent.Context).Inflate(Resource.Layout.activity_list_row, parent, false);
-            //v.SetOnClickListener(OnClickListener());
             vh = new MenuPrincipalViewHolder(v);
 
             return vh;
         }
 
-        //private View.IOnClickListener OnClickListener()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private void textView_Click(object sender, EventArgs e)
+        {
+            var textView = (Android.Widget.TextView)sender;
+            pageType = _listItems.Find(t => t.Title == textView.Text).PageType;
+        }
     }
 }

@@ -16,3 +16,28 @@ E:\Projetos\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll
 E:\Projetos\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.pdb
 E:\Projetos\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
 E:\Projetos\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.pdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.csprojResolveAssemblyReference.cache
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.pdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\obj\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.PCL\bin\Debug\SurveyMobile.PCL.dll.mdb

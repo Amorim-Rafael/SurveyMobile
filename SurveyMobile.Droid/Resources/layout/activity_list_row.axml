@@ -4,10 +4,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16.0dip"
+    android:layout_marginTop="20.0dip"
     android:gravity="center_vertical">
     <TextView
-        android:textSize="18.0sp"
+        android:textSize="23.0sp"
         android:textColor="@color/red_600"
         android:id="@+id/rowText"
         android:layout_width="fill_parent"

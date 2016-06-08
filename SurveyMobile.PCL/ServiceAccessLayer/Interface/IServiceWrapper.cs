@@ -6,9 +6,11 @@ namespace SurveyMobile.PCL.ServiceAccessLayer.Interface
 {
     public interface IServiceWrapper
     {
-        Task<TokenModel> GetAuthorizationTokenData(UserLoginModel loginModel);
+        Task<TokenModel> GetAuthorizationTokenTask(UserLoginModel loginModel);
+        TokenModel GetAuthorizationToken(UserLoginModel loginModel);
         Task<bool> ValidateUser(UserLoginModel loginModel, string authenticationToken);
         Task<string> RegisterUser(UserLoginModel loginModel, string authenticationToken);
-        Task<List<Pesquisa>> DespesasPorPesquisa();
+        Task<List<Pesquisa>> DespesasPorPesquisaAsync();
+        List<Pesquisa> DespesasPorPesquisa();
     }
 }

@@ -10,7 +10,7 @@
     <activity android:icon="@drawable/icon" android:label=" Consolidado" android:name="md511ddda29b893051f9bc6ce12bdb023c2.ConsolidadoActivity" />
     <activity android:icon="@drawable/icon" android:label=" Despesa" android:name="md511ddda29b893051f9bc6ce12bdb023c2.DespesaActivity" />
     <activity android:icon="@drawable/ic_short_logo" android:label=" Mapa" android:name="md511ddda29b893051f9bc6ce12bdb023c2.MapaActivity" />
-    <activity android:icon="@drawable/ic_short_logo" android:label=" POP" android:name="md511ddda29b893051f9bc6ce12bdb023c2.POPActivity" />
+    <activity android:icon="@drawable/ic_short_logo" android:name="md511ddda29b893051f9bc6ce12bdb023c2.POPActivity" />
     <activity android:label=" Login" android:theme="@style/DataInfoTheme" android:name="md511ddda29b893051f9bc6ce12bdb023c2.LoginActivity" />
     <activity android:icon="@drawable/ic_short_logo" android:label=" Questionario" android:name="md511ddda29b893051f9bc6ce12bdb023c2.QuestionarioActivity" />
     <activity android:noHistory="true" android:name="md511ddda29b893051f9bc6ce12bdb023c2.SplashScreenActivity">

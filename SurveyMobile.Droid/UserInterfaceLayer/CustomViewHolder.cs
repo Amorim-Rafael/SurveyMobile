@@ -1,17 +1,19 @@
 using System;
 using Android.Views;
 using Android.Widget;
+using Android.Support.V7.Widget;
 
 namespace SurveyMobile.Droid.UserInterfaceLayer
 {
-    public class CustomViewHolder : Android.Support.V7.Widget.RecyclerView.ViewHolder
+    public class CustomViewHolder : RecyclerView.ViewHolder
     {
         public TextView textView;
-        public Type PageType;
 
-        public CustomViewHolder(View view) : base(view)
+        public CustomViewHolder(View v, Action<int> listener) : base(v)
         {
-            textView = view.FindViewById<TextView>(Resource.Id.rowText);
+            textView = v.FindViewById<TextView>(Resource.Id.rowText);
+
+            v.Click += (sender, e) => listener(base.Position);
         }
     }
 }

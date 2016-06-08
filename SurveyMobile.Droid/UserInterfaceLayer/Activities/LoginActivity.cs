@@ -1,13 +1,13 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Text;
-using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
 using SurveyMobile.Droid.Domain;
 using SurveyMobile.PCL.BusinessLayer.Model;
 using SurveyMobile.PCL.ServiceAccessLayer;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,12 +17,13 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
     public class LoginActivity : AppCompatActivity
     {
 
-        TokenModel tokenModel;
-        private EditText emailEditText;
-        private EditText passwordEditText;
-        private TextView signTextView;
-        private TextView configurationTextView;
-        private ProgressDialog progressDialog;
+        private TokenModel _tokenModel;
+        private EditText _emailEditText;
+        private EditText _passwordEditText;
+        private TextView _signTextView;
+        private TextView _configurationTextView;
+        private ProgressDialog _progressDialog;
+        ServiceWrapper serviceWrapper = new ServiceWrapper();
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -30,18 +31,18 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
 
             SetContentView(Resource.Layout.activity_login);
 
-            emailEditText = FindViewById<EditText>(Resource.Id.usuario);
-            emailEditText.InputType = InputTypes.TextVariationEmailAddress;
+            _emailEditText = FindViewById<EditText>(Resource.Id.usuario);
+            _emailEditText.InputType = InputTypes.TextVariationEmailAddress;
 
-            passwordEditText = FindViewById<EditText>(Resource.Id.senha);
-            passwordEditText.InputType = InputTypes.TextVariationPassword | InputTypes.ClassText;
+            _passwordEditText = FindViewById<EditText>(Resource.Id.senha);
+            _passwordEditText.InputType = InputTypes.TextVariationPassword | InputTypes.ClassText;
 
-            signTextView = FindViewById<TextView>(Resource.Id.entrar);
-            configurationTextView = FindViewById<TextView>(Resource.Id.configuracao);
+            _signTextView = FindViewById<TextView>(Resource.Id.entrar);
+            _configurationTextView = FindViewById<TextView>(Resource.Id.configuracao);
 
-            signTextView.Click += (sender, e) =>
+            _signTextView.Click += (sender, e) =>
             {
-                tokenModel = Logar();
+                _tokenModel = Logar();
 
                 StartActivity(typeof(MenuPrincipalActivity));
             };
@@ -51,21 +52,23 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
         public TokenModel Logar()
         {
             ServiceWrapper serviceWrapper = new ServiceWrapper();
-            UserLoginModel loginModel = new UserLoginModel(emailEditText.Text, passwordEditText.Text);
+            UserLoginModel loginModel = new UserLoginModel(_emailEditText.Text, _passwordEditText.Text);
 
-            progressDialog = ProgressDialog.Show(this, "Autenticando...", "Checando informações...", true);
-            new Thread(new ThreadStart(async delegate
+            _progressDialog = ProgressDialog.Show(this, "Autenticando...", "Checando informações...", true);
+                        
+            new Thread(new ThreadStart(delegate
             {
                 //LOAD METHOD TO GET ACCOUNT INFO
-                RunOnUiThread(() => progressDialog.Show());
+                RunOnUiThread(() => _progressDialog.Show());
 
-                tokenModel = await Task.Run(() => serviceWrapper.GetAuthorizationTokenData(loginModel));
+                _tokenModel = serviceWrapper.GetAuthorizationToken(loginModel);
+                AutenticationOk(_emailEditText.Text, _tokenModel.access_token);
 
                 //HIDE PROGRESS DIALOG
-                RunOnUiThread(() => progressDialog.Hide());
+                RunOnUiThread(() => _progressDialog.Hide());
             })).Start();
 
-            return tokenModel;
+            return _tokenModel;
         }
         #endregion
 
@@ -73,11 +76,10 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
         private void AutenticationOk(string email, string token)
         {
             UpdateCredentialsInCache(email, token);
+            UpdatePesquisasInCache();
             Finish();
         }
-        #endregion
 
-        #region AutenticationOk
         private void UpdateCredentialsInCache(string email, string token)
         {
             AppPreferences ap = new AppPreferences(this);
@@ -87,6 +89,20 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
 
             GlobalParams.getInstance().setEmail(email);
             GlobalParams.getInstance().setToken(token);
+        }
+
+        private void UpdatePesquisasInCache()
+        {
+            List<Pesquisa> listaPesquisa = serviceWrapper.DespesasPorPesquisa();
+
+            //ADD LISTA DE PESQUISA EM CACHE
+            AppPreferences ap = new AppPreferences(this);
+            ap.PutListStringSet("listaPesquisa", listaPesquisa);
+            ap.Commit();
+            //var lst = ap.GetString("listaPesquisa", "");
+            //var lsts = JsonConvert.DeserializeObject<List<Pesquisa>>(lst);
+
+            GlobalParams.getInstance().setListaPesquisas(listaPesquisa);
         }
         #endregion
     }

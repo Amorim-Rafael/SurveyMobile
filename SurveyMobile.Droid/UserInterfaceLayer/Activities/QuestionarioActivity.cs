@@ -7,15 +7,20 @@ using SurveyMobile.PCL.BusinessLayer.Model;
 using SurveyMobile.Droid.UserInterfaceLayer.Adapter;
 using Android.Support.V7.App;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
+using Android.Support.V7.Widget;
+using SurveyMobile.Droid.Domain;
 
 namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
 {
     [Activity(Label = " Questionario", Icon = "@drawable/ic_short_logo")]
     public class QuestionarioActivity : AppCompatActivity
     {
-        private Toolbar toolbar;
-        private ListView lv;
-        private List<ListItem> listItems;
+        private Toolbar _toolbar;
+        private List<ListItem> _listItems;
+
+        private RecyclerView _rv;
+        private CustomAdapter _adapter;
+        private RecyclerView.LayoutManager _rvLayoutManager;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -23,23 +28,29 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
 
             SetContentView(Resource.Layout.activity_list);
 
-            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            //lv = FindViewById<ListView>(Resource.Id.lv);
+            _toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
 
-            //listItems = new List<ListItem> {
-            //                    new ListItem {Title = "Nova entrada", PageType = typeof(QuestionarioActivity)},
-            //                    new ListItem {Title = "Menu pesquisa", PageType = typeof(POPActivity)}
-            //};
+            SetSupportActionBar(_toolbar);
 
-            //lv.Adapter = new ListItemAdapter(this, listItems);
-            //lv.ItemClick += Lv_ItemClick;
+            _rv = FindViewById<RecyclerView>(Resource.Id.rv);
+            _rv.HasFixedSize = true;
 
-            SetSupportActionBar(toolbar);
+            _rvLayoutManager = new LinearLayoutManager(this);
+            _rv.SetLayoutManager(_rvLayoutManager);
+
+            _listItems = new List<ListItem> {
+                                    new ListItem {Title = "Nova entrada", PageType = typeof(QuestionarioActivity)},
+                                    new ListItem {Title = "Menu pesquisa", PageType = typeof(POPActivity)}
+            };
+
+            _adapter = new CustomAdapter(_listItems, this.Resources);
+            _adapter.ItemClick += OnItemClick;
+            _rv.SetAdapter(_adapter);
         }
 
-        private void Lv_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void OnItemClick(object sender, int position)
         {
-            StartActivity(listItems[e.Position].PageType);
+            StartActivity(_listItems[position].PageType);
         }
     }
 }

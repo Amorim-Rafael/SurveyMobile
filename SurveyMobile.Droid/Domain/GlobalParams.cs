@@ -1,22 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using SurveyMobile.PCL.BusinessLayer.Model;
+using System.Collections.Generic;
 
 namespace SurveyMobile.Droid.Domain
 {
-    public class GlobalParams
+    public class GlobalParams : Application
     {
-        private static GlobalParams instance = null;
-        private string email;
-        private string token;
+        private static GlobalParams _instance = null;
+        private string _email;
+        private string _token;
+        private string _title;
+        private List<Pesquisa> _listaPesquisa;
 
         public GlobalParams()
         {
@@ -25,31 +19,51 @@ namespace SurveyMobile.Droid.Domain
 
         public static GlobalParams getInstance()
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = new GlobalParams();
+                _instance = new GlobalParams();
             }
-            return instance;
+            return _instance;
         }
 
         public string getEmail()
         {
-            return email;
+            return _email;
         }
 
         public string getToken()
         {
-            return token;
+            return _token;
         }
 
-        public void setEmail(string s)
+        public string getTitle()
         {
-            email = s;
+            return _title;
         }
 
-        public void setToken(string s)
+        public List<Pesquisa> getListaPesquisas()
         {
-            token = s;
+            return _listaPesquisa;
+        }
+
+        public void setEmail(string email)
+        {
+            _email = email;
+        }
+
+        public void setToken(string token)
+        {
+            _token = token;
+        }
+
+        public void setTitle(string title)
+        {
+            _title = title;
+        }
+
+        public void setListaPesquisas(List<Pesquisa> listaPesquisa)
+        {
+            _listaPesquisa = listaPesquisa;
         }
     }
 }

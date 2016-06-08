@@ -1,11 +1,9 @@
 using Android.App;
+using Android.Views;
 using Android.Widget;
 using SurveyMobile.PCL.BusinessLayer.Model;
 using System;
 using System.Collections.Generic;
-using Android.Views;
-using Android.Support.V7.Widget;
-using static Android.Support.V7.Widget.RecyclerView;
 
 namespace SurveyMobile.Droid.UserInterfaceLayer.Adapter
 {

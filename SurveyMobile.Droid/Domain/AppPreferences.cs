@@ -2,6 +2,7 @@ using System;
 using Android.Content;
 using Android.Preferences;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace SurveyMobile.Droid.Domain
 {
@@ -75,6 +76,16 @@ namespace SurveyMobile.Droid.Domain
             return mSharedPrefs.GetStringSet(key, defValues);
         }
 
+        public string GetListStringSet<TEntity>(string key, List<TEntity> values)
+        {
+            string json = JsonConvert.SerializeObject(values);
+
+            return mSharedPrefs.GetString(key, json);
+            //string json = JsonConvert.SerializeObject(values);
+
+            //mPrefsEditor.PutString(key, json);
+        }
+
         public void RegisterOnSharedPreferenceChangeListener(ISharedPreferencesOnSharedPreferenceChangeListener listener)
         {
             mSharedPrefs.RegisterOnSharedPreferenceChangeListener(listener);
@@ -135,6 +146,13 @@ namespace SurveyMobile.Droid.Domain
         public ISharedPreferencesEditor PutStringSet(string key, ICollection<string> values)
         {
             return mPrefsEditor.PutStringSet(key, values);
+        }
+
+        public void PutListStringSet<TEntity>(string key, List<TEntity> values)
+        {
+            string json = JsonConvert.SerializeObject(values);
+
+            mPrefsEditor.PutString(key, json);
         }
 
         public ISharedPreferencesEditor Remove(string key)

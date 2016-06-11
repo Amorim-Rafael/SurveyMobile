@@ -8,6 +8,10 @@
     <AdditionalAndroidResourcePath>C:\Users\Rafael\AppData\Local\Xamarin\Android.Support.v7.GridLayout\23.2.1.0\embedded</AdditionalAndroidResourcePath>
     <AdditionalAndroidResourcePath>C:\Users\Rafael\AppData\Local\Xamarin\Android.Support.v7.RecyclerView\23.2.1.0\embedded</AdditionalAndroidResourcePath>
     <AdditionalAndroidResourcePath>C:\Users\Rafael\AppData\Local\Xamarin\Android.Support.Vector.Drawable\23.2.1.0\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Rafael\AppData\Local\Xamarin\GooglePlayServices.Base\8.4.0\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Rafael\AppData\Local\Xamarin\GooglePlayServices.Basement\8.4.0\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Rafael\AppData\Local\Xamarin\GooglePlayServices.Location\8.4.0\embedded</AdditionalAndroidResourcePath>
+    <AdditionalAndroidResourcePath>C:\Users\Rafael\AppData\Local\Xamarin\GooglePlayServices.Maps\8.4.0\embedded</AdditionalAndroidResourcePath>
   </AdditionalAndroidResourcePaths>
   <AdditionalJavaLibraryReferences>
     <AdditionalJavaLibraryReference>C:\Users\Rafael\AppData\Local\Xamarin\Android.Support.Animated.Vector.Drawable\23.2.1.0\embedded\classes.jar</AdditionalJavaLibraryReference>
@@ -18,6 +22,10 @@
     <AdditionalJavaLibraryReference>C:\Users\Rafael\AppData\Local\Xamarin\Android.Support.v7.GridLayout\23.2.1.0\embedded\classes.jar</AdditionalJavaLibraryReference>
     <AdditionalJavaLibraryReference>C:\Users\Rafael\AppData\Local\Xamarin\Android.Support.v7.RecyclerView\23.2.1.0\embedded\classes.jar</AdditionalJavaLibraryReference>
     <AdditionalJavaLibraryReference>C:\Users\Rafael\AppData\Local\Xamarin\Android.Support.Vector.Drawable\23.2.1.0\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Rafael\AppData\Local\Xamarin\GooglePlayServices.Base\8.4.0\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Rafael\AppData\Local\Xamarin\GooglePlayServices.Basement\8.4.0\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Rafael\AppData\Local\Xamarin\GooglePlayServices.Location\8.4.0\embedded\classes.jar</AdditionalJavaLibraryReference>
+    <AdditionalJavaLibraryReference>C:\Users\Rafael\AppData\Local\Xamarin\GooglePlayServices.Maps\8.4.0\embedded\classes.jar</AdditionalJavaLibraryReference>
   </AdditionalJavaLibraryReferences>
   <AdditionalNativeLibraryReferences />
 </Paths>

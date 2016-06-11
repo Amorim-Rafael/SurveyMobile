@@ -14,6 +14,10 @@ C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v7.GridLayout.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v7.RecyclerView.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Xamarin.GooglePlayServices.Base.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Xamarin.GooglePlayServices.Basement.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Xamarin.GooglePlayServices.Location.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Xamarin.GooglePlayServices.Maps.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\System.Collections.Concurrent.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\System.Collections.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\System.ComponentModel.Annotations.dll

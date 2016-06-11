@@ -18,4 +18,10 @@
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
   </style>
+
+  <!--STYLE DO BOTÃO-->
+  <style name="button" parent="Theme.AppCompat.Light">
+    <item name="colorControlHighlight">@color/red_700</item>
+    <item name="colorButtonNormal">@color/red_600</item>
+  </style>
 </resources>

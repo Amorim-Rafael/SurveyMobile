@@ -2,6 +2,7 @@ C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.Droid.pdb
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.Droid.x0.apk
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.Droid.x0-Signed.apk
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.PCL.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.Android.Support.Design.dll
@@ -10,7 +11,10 @@ C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.Android.Support.v7.GridLayout.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
-C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.GooglePlayServices.Base.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.GooglePlayServices.Basement.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.GooglePlayServices.Location.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Xamarin.GooglePlayServices.Maps.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.PCL.pdb
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\SurveyMobile.Droid.csprojResolveAssemblyReference.cache
@@ -30,6 +34,8 @@ C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\fragment_lista.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\fragment_mapa.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\activity_list_row.xml
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\fragment_detalhe.xml
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\fragment_resumo.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\main.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\values\strings.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\drawable\icon.png
@@ -41,6 +47,5 @@ C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\values\styles.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\R.cs.flag
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\uploadflags.txt
-C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.PCL.dll.mdb
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\SurveyMobile.Droid.dll.mdb
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.Droid.dll.mdb

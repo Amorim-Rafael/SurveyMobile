@@ -5,31 +5,30 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Adapter
 {
     public class TabsFragmentPagerAdapter : FragmentPagerAdapter
     {
-        private readonly Fragment[] fragments;
-
-        private readonly ICharSequence[] titles;
+        private readonly Fragment[] _fragments;
+        private readonly ICharSequence[] _titles;
 
         public TabsFragmentPagerAdapter(FragmentManager fm, Fragment[] fragments, ICharSequence[] titles) : base(fm)
         {
-            this.fragments = fragments;
-            this.titles = titles;
+            _fragments = fragments;
+            _titles = titles;
         }
         public override int Count
         {
             get
             {
-                return fragments.Length;
+                return _fragments.Length;
             }
         }
 
         public override Fragment GetItem(int position)
         {
-            return fragments[position];
+            return _fragments[position];
         }
 
         public override ICharSequence GetPageTitleFormatted(int position)
         {
-            return titles[position];
+            return _titles[position];
         }
     }
 }

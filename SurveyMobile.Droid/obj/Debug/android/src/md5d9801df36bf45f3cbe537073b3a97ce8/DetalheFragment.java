@@ -2,7 +2,7 @@ package md5d9801df36bf45f3cbe537073b3a97ce8;
 
 
 public class DetalheFragment
-	extends android.app.Fragment
+	extends android.support.v4.app.Fragment
 	implements
 		mono.android.IGCUserPeer
 {

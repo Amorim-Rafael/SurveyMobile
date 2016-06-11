@@ -13,8 +13,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer
     [Activity(Label = " Menu Principal", Icon = "@drawable/ic_short_logo")]
     public class MenuPrincipalActivity : AppCompatActivity
     {
-        private Toolbar _toolbar;
-        private Button _btn;
+        private Toolbar _toolbar;        
         private List<ListItem> _listItems;
 
         private RecyclerView _rv;
@@ -26,8 +25,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.activity_list);
-            _toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            _btn = FindViewById<Button>(Resource.Id.add_name);
+            _toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);            
             SetSupportActionBar(_toolbar);
 
             _rv = FindViewById<RecyclerView>(Resource.Id.rv);

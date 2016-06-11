@@ -2,7 +2,7 @@ package md511ddda29b893051f9bc6ce12bdb023c2;
 
 
 public class ConsolidadoActivity
-	extends android.app.Activity
+	extends android.support.v7.app.AppCompatActivity
 	implements
 		mono.android.IGCUserPeer
 {

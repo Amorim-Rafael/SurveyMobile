@@ -2,7 +2,6 @@ using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
-using Android.Views;
 using Android.Widget;
 using SurveyMobile.Droid.UserInterfaceLayer.Adapter;
 using SurveyMobile.PCL.BusinessLayer.Model;
@@ -15,6 +14,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
     public class DespesaActivity : AppCompatActivity
     {
         private Toolbar _toolbar;
+        private Button _btn;
         private List<ListItem> _listItems;
 
         private RecyclerView _rv;
@@ -25,10 +25,11 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
         {
             base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.activity_list);
-
+            SetContentView(Resource.Layout.activity_list);            
             _toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-
+            _btn = FindViewById<Button>(Resource.Id.btnConsolidado);
+            _btn.Visibility = Android.Views.ViewStates.Visible;
+            _btn.Click += btnClickConsolidado;
             SetSupportActionBar(_toolbar);
 
             _rv = FindViewById<RecyclerView>(Resource.Id.rv);
@@ -49,37 +50,14 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
             _rv.SetAdapter(_adapter);
         }
 
+        private void btnClickConsolidado(object sender, System.EventArgs e)
+        {
+            StartActivity(typeof(ConsolidadoActivity));
+        }
+
         private void OnItemClick(object sender, int position)
         {
             StartActivity(_listItems[position].PageType);
         }
-        //List<ListItem> listItems;
-        //protected override void OnCreate(Bundle bundle)
-        //{
-        //    base.OnCreate(bundle);
-
-        //    listItems = new List<ListItem> {
-        //                        new ListItem {Title = "Coordenador", PageType = null},
-        //                        new ListItem {Title = "Pesquisador 1", PageType = null},
-        //                        new ListItem {Title = "Pesquisador 2", PageType = null},
-        //                        new ListItem {Title = "Pesquisador 3", PageType = null}
-        //    };
-        //    ListAdapter = new ListItemAdapter(this, listItems);
-
-        //    FrameLayout footerLayout = (FrameLayout)LayoutInflater.Inflate(Resource.Layout.ListItemFooter, null);
-        //    Button button = (Button)footerLayout.FindViewById(Resource.Id.btnConsolidado);
-        //    button.Click += delegate {
-        //        StartActivity(typeof(ConsolidadoActivity));
-        //    };
-
-        //    ListView list = this.ListView as ListView;
-        //    list.AddFooterView(footerLayout);
-
-        //}        
-
-        //protected override void OnListItemClick(ListView l, View v, int position, long id)
-        //{
-        //    StartActivity(listItems[position].PageType);
-        //}
     }
 }

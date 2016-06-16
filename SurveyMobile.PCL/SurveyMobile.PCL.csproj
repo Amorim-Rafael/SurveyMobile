@@ -40,9 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\Model\Equipe.cs" />
+    <Compile Include="BusinessLayer\Model\Logica.cs" />
     <Compile Include="BusinessLayer\Model\Papel.cs" />
     <Compile Include="BusinessLayer\Model\ListItem.cs" />
     <Compile Include="BusinessLayer\Model\Pesquisa.cs" />
+    <Compile Include="BusinessLayer\Model\Questao.cs" />
+    <Compile Include="BusinessLayer\Model\Questionario.cs" />
+    <Compile Include="BusinessLayer\Model\Regra.cs" />
+    <Compile Include="BusinessLayer\Model\Resposta.cs" />
     <Compile Include="BusinessLayer\Model\TokenModel.cs" />
     <Compile Include="BusinessLayer\Model\UserLoginModel.cs" />
     <Compile Include="BusinessLayer\Model\Pesquisador.cs" />

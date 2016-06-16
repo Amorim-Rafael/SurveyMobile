@@ -21,12 +21,13 @@
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <activity android:icon="@drawable/ic_short_logo" android:label=" Menu Principal" android:name="md5aa9c048276018e808b89db4ff45d7f09.MenuPrincipalActivity" />
     <activity android:icon="@drawable/ic_short_logo" android:label=" Pesquisa" android:name="md5aa9c048276018e808b89db4ff45d7f09.PesquisaActivity" />
+    <activity android:label="QuestionarioActivity" android:name="md511ddda29b893051f9bc6ce12bdb023c2.QuestionarioActivity" />
     <activity android:icon="@drawable/icon" android:label=" Consolidado" android:name="md511ddda29b893051f9bc6ce12bdb023c2.ConsolidadoActivity" />
     <activity android:icon="@drawable/icon" android:label=" Despesa" android:name="md511ddda29b893051f9bc6ce12bdb023c2.DespesaActivity" />
     <activity android:icon="@drawable/ic_short_logo" android:label=" Mapa" android:name="md511ddda29b893051f9bc6ce12bdb023c2.MapaActivity" />
     <activity android:icon="@drawable/ic_short_logo" android:name="md511ddda29b893051f9bc6ce12bdb023c2.POPActivity" />
     <activity android:label=" Login" android:theme="@style/DataInfoTheme" android:name="md511ddda29b893051f9bc6ce12bdb023c2.LoginActivity" />
-    <activity android:icon="@drawable/ic_short_logo" android:label=" Questionario" android:name="md511ddda29b893051f9bc6ce12bdb023c2.QuestionarioActivity" />
+    <activity android:icon="@drawable/ic_short_logo" android:label=" Questionario" android:name="md511ddda29b893051f9bc6ce12bdb023c2.QuestionarioFinalActivity" />
     <activity android:noHistory="true" android:name="md511ddda29b893051f9bc6ce12bdb023c2.SplashScreenActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

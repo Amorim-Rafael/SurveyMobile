@@ -1,56 +1,59 @@
-using System.Collections.Generic;
-
 using Android.App;
+using Android.Content.Res;
 using Android.OS;
-using Android.Widget;
-using SurveyMobile.PCL.BusinessLayer.Model;
-using SurveyMobile.Droid.UserInterfaceLayer.Adapter;
+using Android.Support.V4.View;
 using Android.Support.V7.App;
+using Newtonsoft.Json;
+using SurveyMobile.Droid.Domain.Survey;
+using SurveyMobile.Droid.UserInterfaceLayer.Adapter;
+using System.Collections.Generic;
+using System.IO;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
-using Android.Support.V7.Widget;
-using SurveyMobile.Droid.Domain;
 
 namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
 {
-    [Activity(Label = " Questionario", Icon = "@drawable/ic_short_logo")]
+    [Activity(Label = "QuestionarioActivity")]
     public class QuestionarioActivity : AppCompatActivity
     {
         private Toolbar _toolbar;
-        private List<ListItem> _listItems;
+        //private Questionario _questionario;
+        private QuestionaryPagerAdapter _adapter;
+        private ViewPager _viewPager;
 
-        private RecyclerView _rv;
-        private CustomAdapter _adapter;
-        private RecyclerView.LayoutManager _rvLayoutManager;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.activity_list);
+            SetContentView(Resource.Layout.activity_questionario);
 
             _toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-
             SetSupportActionBar(_toolbar);
-
-            _rv = FindViewById<RecyclerView>(Resource.Id.rv);
-            _rv.HasFixedSize = true;
-
-            _rvLayoutManager = new LinearLayoutManager(this);
-            _rv.SetLayoutManager(_rvLayoutManager);
-
-            _listItems = new List<ListItem> {
-                                    new ListItem {Title = "Nova entrada", PageType = typeof(QuestionarioActivity)},
-                                    new ListItem {Title = "Menu pesquisa", PageType = typeof(POPActivity)}
-            };
-
-            _adapter = new CustomAdapter(_listItems, this.Resources);
-            _adapter.ItemClick += OnItemClick;
-            _rv.SetAdapter(_adapter);
+            SupportActionBar.Title = "Teste";
+            _toolbar.SetNavigationIcon(2130837624);
+            PreencherInforQuestioario();
         }
 
-        private void OnItemClick(object sender, int position)
+        private void PreencherInforQuestioario()
         {
-            StartActivity(_listItems[position].PageType);
+            QuestionarioManager questionarioManager = new QuestionarioManager();
+            questionarioManager.setQuestionarioActivity(this);
+
+            string json = "";
+
+            AssetManager assets = this.Assets;
+            using (StreamReader sr = new StreamReader(assets.Open("Questionario.json")))
+            {
+                json = sr.ReadToEnd();
+            }
+
+            var questionario = JsonConvert.DeserializeObject<List<Questionario>>(json);
+
+            questionarioManager.setQuestionarioList(questionario);
+
+            //_adapter = new QuestionaryPagerAdapter()
+            _viewPager = FindViewById<ViewPager>(Resource.Id.questions);
+
         }
     }
 }

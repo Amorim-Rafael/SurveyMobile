@@ -1,0 +1,126 @@
+[
+	{
+		"QuestionarioId": 1,
+		"Descricao": "Survey 1",
+		"Questoes":[
+			{
+				"QuestaoId": 1,
+				"Titulo": "Sexo",
+				"TipoQuestao": 4,
+				"TipoResposta": 1,
+				"GrupoQuestaoId": 2,
+				"Respostas":[
+					{
+						"RespostaId": 1,
+						"Descricao": "Masculino"
+					},
+					{
+						"RespostaId": 2,
+						"Descricao": "Feminino"
+					}
+				]
+			},
+			{
+				"QuestaoId": 2,
+				"Titulo": "Faixa Etária",
+				"TipoQuestao": 4,
+				"TipoResposta": 1,
+				"GrupoQuestaoId": 2,
+				"Respostas":[
+					{
+						"RespostaId": 3,
+						"Descricao": "16 a 24 anos"
+					},
+					{
+						"RespostaId": 4,
+						"Descricao": "25 a 34 anos"
+					},
+					{
+						"RespostaId": 5,
+						"Descricao": "35 a 49 anos"
+					},
+					{
+						"RespostaId": 6,
+						"Descricao": "50 ou mais"
+					}
+				]
+			},
+			{
+				"QuestaoId": 3,
+				"Titulo": "Grau de Instrução",
+				"TipoQuestao": 4,
+				"TipoResposta": 1,
+				"GrupoQuestaoId": 2,
+				"Respostas":[
+					{
+						"RespostaId": 7,
+						"Descricao": "Até a 4º Série"
+					},
+					{
+						"RespostaId": 8,
+						"Descricao": "Da 5º a 9º Série"
+					},
+					{
+						"RespostaId": 9,
+						"Descricao": "Ensino Médio e Superior"
+					}
+				]
+			},
+			{
+				"QuestaoId": 4,
+				"Titulo": "Renda: juntando toda renda da sua família, aposentadoria, salários e outros recebimentos qual é a renda total?",
+				"TipoQuestao": 4,
+				"TipoResposta": 1,
+				"GrupoQuestaoId": 2,
+				"Respostas":[
+					{
+						"RespostaId": 10,
+						"Descricao": "Até 1 SM (R$ 788)"
+					},
+					{
+						"RespostaId": 11,
+						"Descricao": "Mais de 1 SM (R$ 788) até 2 SM (R$ 1.576)"
+					},
+					{
+						"RespostaId": 12,
+						"Descricao": "Mais de 2 SM (>R$ 1.576)"
+					}
+				]
+			}
+		],
+		"Logica":[
+			{
+				"Acao": "jump_3",
+				"Regras":[
+					{
+						"QuestaoId": 1,
+						"Opcoes":[1],
+						"Operador": "+"
+					}
+				]
+			},
+			{
+				"Acao": "jump_4",
+				"Regras":[
+					{
+						"QuestaoId": 2,
+						"Opcoes":[3],
+						"Operador": ">",
+						"Compativo": 20
+					}
+				]
+			}
+			,
+			{
+				"Acao": "finish",
+				"Regras":[
+					{
+						"QuestaoId": 4,
+						"Opcoes":[2],
+						"Operador": "+"
+					}
+				]
+			}
+		]
+	}
+]

@@ -42,7 +42,8 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
             _rv.SetLayoutManager(_rvLayoutManager);
 
             _listItems = new List<ListItem> {
-                                    new ListItem {Title = "Nova entrevista", PageType = typeof(QuestionarioActivity)},
+                new ListItem {Title = "Nova entrevista", PageType = typeof(QuestionarioActivity)},
+                                    //new ListItem {Title = "Nova entrevista", PageType = typeof(QuestionarioFinalActivity)},
                                     new ListItem {Title = "Mapa", PageType = typeof(MapaActivity)},
                                     new ListItem {Title = "Despesas", PageType = typeof(DespesaActivity)}
             };

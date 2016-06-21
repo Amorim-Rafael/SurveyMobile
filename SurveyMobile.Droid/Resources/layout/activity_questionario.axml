@@ -2,74 +2,74 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-  <include
-      android:id="@+id/toolbar"
-      layout="@layout/toolbar" />
-  <ProgressBar
-      android:id="@+id/survey_progress_bar"
-      android:background="@color/white"
-      android:clickable="false"
-      android:layout_width="fill_parent"
-      android:layout_height="10.0dip"
-      android:layout_marginLeft="5.0dip"
-      android:layout_marginRight="5.0dip"
-      android:indeterminate="false"
-      android:layout_below="@id/toolbar"
-      style="?android:attr/progressBarStyleHorizontal" />
-  <TextView
-      android:textColor="@color/grey_400"
-      android:id="@+id/survey_progress_text"
-      android:background="@color/white"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="5.0dip"
-      android:layout_marginRight="5.0dip"
-      android:layout_below="@id/survey_progress_bar" />
-  <!--<br.com.datainfo.view.NonSwipeableViewPager
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <ProgressBar
+        android:id="@+id/survey_progress_bar"
+        android:background="@color/white"
+        android:clickable="false"
+        android:layout_width="fill_parent"
+        android:layout_height="10.0dip"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:indeterminate="false"
+        android:layout_below="@id/toolbar"
+        style="?android:attr/progressBarStyleHorizontal" />
+    <TextView
+        android:textColor="@color/grey_400"
+        android:id="@+id/survey_progress_text"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:layout_below="@id/survey_progress_bar" />
+<!--<br.com.datainfo.view.NonSwipeableViewPager
         android:id="@+id/questions"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/footer_bar"
         android:layout_below="@+id/survey_progress_text" />-->
-  <android.support.v4.view.ViewPager
+    <android.support.v4.view.ViewPager
         android:id="@+id/questions"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/footer_bar"
         android:layout_below="@+id/survey_progress_text" />
-  <LinearLayout
-      android:orientation="horizontal"
-      android:id="@+id/footer_bar"
-      android:background="@color/white"
-      android:layout_width="fill_parent"
-      android:layout_height="48.0dip"
-      android:layout_alignParentBottom="true">
-    <TextView
-        android:textSize="18.0sp"
-        android:textColor="@color/red_600"
-        android:gravity="center"
-        android:id="@+id/prev_button"
-        android:background="?android:attr/selectableItemBackground"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/footer_bar"
+        android:background="@color/white"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:adjustViewBounds="true"
-        android:text="@string/prev_text"
-        android:layout_weight="1.0"
-        android:layout_alignParentLeft="true"
-        android:onClick="gotoPrevPage" />
-    <TextView
-        android:textSize="18.0sp"
-        android:textColor="@color/red_600"
-        android:gravity="center"
-        android:id="@+id/next_button"
-        android:background="?android:attr/selectableItemBackground"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:adjustViewBounds="true"
-        android:text="@string/next_text"
-        android:layout_weight="1.0"
-        android:layout_toRightOf="@id/prev_button"
-        android:layout_alignParentRight="true"
-        android:onClick="gotoNextPage" />
-  </LinearLayout>
+        android:layout_height="48.0dip"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:textSize="18.0sp"
+            android:textColor="@color/red_600"
+            android:gravity="center"
+            android:id="@+id/prev_button"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:adjustViewBounds="true"
+            android:text="@string/prev_text"
+            android:layout_weight="1.0"
+            android:layout_alignParentLeft="true"
+            android:onClick="PrevPage" />
+        <TextView
+            android:textSize="18.0sp"
+            android:textColor="@color/red_600"
+            android:gravity="center"
+            android:id="@+id/next_button"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:adjustViewBounds="true"
+            android:text="@string/next_text"
+            android:layout_weight="1.0"
+            android:layout_toRightOf="@id/prev_button"
+            android:layout_alignParentRight="true"
+            android:onClick="NextPage" />
+    </LinearLayout>
 </RelativeLayout>

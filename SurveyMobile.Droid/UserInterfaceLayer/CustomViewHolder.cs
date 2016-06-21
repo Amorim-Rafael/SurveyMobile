@@ -13,7 +13,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer
         {
             textView = v.FindViewById<TextView>(Resource.Id.rowText);
 
-            v.Click += (sender, e) => listener(base.Position);
+            v.Click += (sender, e) => listener(Position);
         }
     }
 }

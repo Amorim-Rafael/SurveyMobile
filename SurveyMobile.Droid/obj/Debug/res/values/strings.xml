@@ -1,1 +1,1 @@
-<resources><string name="ApplicationName">DataInfo Survey</string><string name="entrar">Entrar</string><string name="configuracao">Configurações</string><string name="prev_text">Anterior</string><string name="next_text">Proximo</string></resources>
+<resources><string name="ApplicationName">DataInfo Survey</string><string name="entrar">Entrar</string><string name="configuracao">Configurações</string><string name="prev_text">Anterior</string><string name="next_text">Proximo</string><string name="cannot_load_survey_msg">Erro ao carregar pesquisa.</string></resources>

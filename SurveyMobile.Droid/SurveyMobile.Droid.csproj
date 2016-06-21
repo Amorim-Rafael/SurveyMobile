@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
@@ -110,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\AppPreferences.cs" />
+    <Compile Include="Domain\BaseObject.cs" />
     <Compile Include="Domain\GlobalParams.cs" />
     <Compile Include="Domain\Survey\Logica.cs" />
     <Compile Include="Domain\Survey\Questao.cs" />
@@ -121,7 +123,7 @@
     <Compile Include="UserInterfaceLayer\Activities\QuestionarioActivity.cs" />
     <Compile Include="UserInterfaceLayer\Adapter\CustomAdapter.cs" />
     <Compile Include="UserInterfaceLayer\Adapter\ListItemAdapter.cs" />
-    <Compile Include="UserInterfaceLayer\Adapter\QuestionaryPagerAdapter.cs" />
+    <Compile Include="UserInterfaceLayer\Adapter\QuestionarioPagerAdapter.cs" />
     <Compile Include="UserInterfaceLayer\Adapter\TabsFragmentPagerAdapter.cs" />
     <Compile Include="UserInterfaceLayer\Activities\ConsolidadoActivity.cs" />
     <Compile Include="UserInterfaceLayer\Activities\DespesaActivity.cs" />
@@ -140,6 +142,7 @@
     <Compile Include="UserInterfaceLayer\Fragments\OneChoiceQuestionFragment.cs" />
     <Compile Include="UserInterfaceLayer\Fragments\ResumoFragment.cs" />
     <Compile Include="UserInterfaceLayer\Views\NonSwipeableViewPager.cs" />
+    <Compile Include="UserInterfaceLayer\Widget\QuestionarioWidgetGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -200,6 +203,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_questionario.axml">
       <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_onechoice_questionario.axml">
+      <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>

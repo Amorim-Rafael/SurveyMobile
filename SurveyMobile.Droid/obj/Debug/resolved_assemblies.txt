@@ -1,5 +1,6 @@
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\SurveyMobile.Droid.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Mono.Android.dll
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Mono.Android.Export.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\mscorlib.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\Newtonsoft.Json.dll
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\assemblies\SurveyMobile.PCL.dll

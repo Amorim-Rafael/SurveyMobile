@@ -53,5 +53,6 @@ C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\R.cs.flag
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\uploadflags.txt
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.PCL.dll.mdb
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\fragment_onechoice_questionario.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\SurveyMobile.Droid.dll.mdb
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.Droid.dll.mdb

@@ -13,6 +13,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         public int QuestionarioId { get; set; }
         public string Descricao { get; set; }
         public List<Questao> Questoes { get; set; }
+        public List<Logica> Logica { get; set; }
 
         public void setQuestoes(List<Questionario> questionario)
         {

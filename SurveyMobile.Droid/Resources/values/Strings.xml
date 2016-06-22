@@ -6,4 +6,13 @@
   <string name="prev_text">Anterior</string>
   <string name="next_text">Proximo</string>
   <string name="cannot_load_survey_msg">Erro ao carregar pesquisa.</string>
+  <string name="expense">Despesa</string>
+  <string name="expense_are_you_shure_question_msg">Você tem certeza que deseja remover essa despesa?</string>
+  <string name="finish_survey_msg">Entrevista finalizada com sucesso!</string>
+  <string name="finish_text">Finalizar</string>
+  <string name="goback_home_text">Voltar para a tela principal</string>
+  <string name="import_json">Importar entrevistas</string>
+  <string name="invalid_content_msg">Conteúdo inválido.</string>
+  <string name="invalid_file_msg">Arquivo inválido.</string>
+  <string name="map">Mapa</string>
 </resources>

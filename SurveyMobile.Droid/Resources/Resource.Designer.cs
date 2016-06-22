@@ -4441,6 +4441,33 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f070039
 			public const int entrar = 2131165241;
 			
+			// aapt resource value: 0x7f07003e
+			public const int expense = 2131165246;
+			
+			// aapt resource value: 0x7f07003f
+			public const int expense_are_you_shure_question_msg = 2131165247;
+			
+			// aapt resource value: 0x7f070040
+			public const int finish_survey_msg = 2131165248;
+			
+			// aapt resource value: 0x7f070041
+			public const int finish_text = 2131165249;
+			
+			// aapt resource value: 0x7f070042
+			public const int goback_home_text = 2131165250;
+			
+			// aapt resource value: 0x7f070043
+			public const int import_json = 2131165251;
+			
+			// aapt resource value: 0x7f070044
+			public const int invalid_content_msg = 2131165252;
+			
+			// aapt resource value: 0x7f070045
+			public const int invalid_file_msg = 2131165253;
+			
+			// aapt resource value: 0x7f070046
+			public const int map = 2131165254;
+			
 			// aapt resource value: 0x7f07003c
 			public const int next_text = 2131165244;
 			

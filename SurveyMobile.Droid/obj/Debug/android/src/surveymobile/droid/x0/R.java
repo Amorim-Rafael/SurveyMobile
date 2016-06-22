@@ -3522,6 +3522,15 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f070020;
         public static final int configuracao=0x7f07003a;
         public static final int entrar=0x7f070039;
+        public static final int expense=0x7f07003e;
+        public static final int expense_are_you_shure_question_msg=0x7f07003f;
+        public static final int finish_survey_msg=0x7f070040;
+        public static final int finish_text=0x7f070041;
+        public static final int goback_home_text=0x7f070042;
+        public static final int import_json=0x7f070043;
+        public static final int invalid_content_msg=0x7f070044;
+        public static final int invalid_file_msg=0x7f070045;
+        public static final int map=0x7f070046;
         public static final int next_text=0x7f07003c;
         /**  Description of the button that clears the search input when searching for places. 
          */

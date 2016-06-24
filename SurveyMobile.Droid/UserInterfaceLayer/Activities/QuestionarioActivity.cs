@@ -122,6 +122,10 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
             _footerBar = FindViewById<LinearLayout>(Resource.Id.footer_bar);
             _prevButton = _footerBar.FindViewById<TextView>(Resource.Id.prev_button);
             _nextButton = _footerBar.FindViewById<TextView>(Resource.Id.next_button);
+
+            _nextButton.Click += (sender, e) => {
+                NextPage(_viewPager);
+            };
         }
 
         private void UpdateFooterBar()
@@ -180,7 +184,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
         {
             int item = _viewPager.CurrentItem;
 
-            if (!QuestionarioManager.getInstance().ToNext(item))
+            if (!QuestionarioManager.getInstance().ProceedToNext(item))
                 Toast.MakeText(this, "Escolha pelo menos uma op\u00e7\u00e3o.", 0).Show();
             else if (item >= _numberPages - 1)
                 OpenFinishSurveyActivity();

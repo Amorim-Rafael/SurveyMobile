@@ -9,7 +9,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         public int RegraId { get; set; }
         public int QuestaoId { get; set; }
         public virtual Questao Questao { get; set; }
-        public string[] Opcoes { get; set; }
+        public int[] Opcoes { get; set; }
         public string Operador { get; set; }
         //private int _regraId { get; set; }
         //private int _questaoId { get; set; }

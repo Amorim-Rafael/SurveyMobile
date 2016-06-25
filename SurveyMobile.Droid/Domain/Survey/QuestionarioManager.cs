@@ -1,4 +1,5 @@
 using Android.Util;
+using Newtonsoft.Json;
 using SurveyMobile.Droid.Domain.Send;
 using SurveyMobile.Droid.UserInterfaceLayer.Activities;
 using System;
@@ -13,7 +14,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         private static string TAG;
         private static QuestionarioManager instance = null;
         private SendQuestionario _questionarioAtual;
-        private Dictionary<int, int> _dynamicOptions;
+        private Dictionary<int, List<RespostaDynamic>> _respostaDynamic;
         private Dictionary<int, Dictionary<int, string>> _gridOptions;
         private Dictionary<int, int> _lastFormPositionGrid;
         private Dictionary<int, int> _lastIds;
@@ -28,7 +29,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         {
             TAG = "QuestionarioManager";
             _questionarioAtual = new SendQuestionario();
-            _dynamicOptions = new Dictionary<int, int>();
+            _respostaDynamic = new Dictionary<int, List<RespostaDynamic>>();
             _gridOptions = new Dictionary<int, Dictionary<int, string>>();
             _lastFormPositionGrid = new Dictionary<int, int>();
             _lastIds = new Dictionary<int, int>();
@@ -37,7 +38,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             _questoes = new List<Questao>();
         }
 
-        public static QuestionarioManager getInstance()
+        public static QuestionarioManager GetInstance()
         {
             if (instance == null)
             {
@@ -48,7 +49,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         }
 
         #region Getters
-        public QuestionarioActivity getQuestionarioActivity()
+        public QuestionarioActivity GetQuestionarioActivity()
         {
             return _questionarioActivity;
         }
@@ -58,23 +59,23 @@ namespace SurveyMobile.Droid.Domain.Survey
             return _questoes;
         }
 
-        public List<int> getOptionsSelected(int page)
+        public List<int> GetRespostaSelected(int page)
         {
             List<int> option = new List<int>();
             if (_optionsSelected.ContainsKey(page))
-                return _optionsSelected[page].Select(s => int.Parse(s)).ToList() ;
+                return _optionsSelected[page].Select(s => int.Parse(s)).ToList();
 
             return option;
         }
         #endregion
 
         #region Setters
-        public void setQuestionarioActivity(QuestionarioActivity questionarioActivity)
+        public void SetQuestionarioActivity(QuestionarioActivity questionarioActivity)
         {
             _questionarioActivity = questionarioActivity;
         }
 
-        public void setQuestoesList(List<Questao> questoes)
+        public void SetQuestoesList(List<Questao> questoes)
         {
             _questoes = questoes;
         }
@@ -82,7 +83,7 @@ namespace SurveyMobile.Droid.Domain.Survey
 
 
 
-        public void addOptionSelected(int page, int option)
+        public void AddRespostaSelected(int page, int option)
         {
             List<string> options = _optionsSelected[page];
             if (options == null)
@@ -93,7 +94,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             _optionsSelected.Add(page, options);
         }
 
-        public void updateFirstOptionSelected(int page, int option)
+        public void UpdateFirstRespostaSelected(int page, int option)
         {
             List<string> options;
             if (_optionsSelected.Count > 0)
@@ -115,7 +116,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             _optionsSelected.Add(page, options);
         }
 
-        public void removeOptionSelected(int page, int option)
+        public void RemoveRespostaSelected(int page, int option)
         {
             List<string> options = _optionsSelected[page];
             if (options != null)
@@ -125,7 +126,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             }
         }
 
-        public int lastOptionSelected(int page)
+        public int LastRespostaSelected(int page)
         {
             if (!_optionsSelected.ContainsKey(page))
                 return -1;
@@ -137,7 +138,41 @@ namespace SurveyMobile.Droid.Domain.Survey
             return Convert.ToInt16(options[options.Count - 1]);
         }
 
-        private List<string> initOpenOptionList(int page, int size)
+        public void InitDynamicList(int page)
+        {
+            _respostaDynamic.Add(page, new List<RespostaDynamic>());
+        }
+
+        public void AddDynamicOption(int page, RespostaDynamic resposta)
+        {
+            List<RespostaDynamic> respostaDynamic = _respostaDynamic[page];
+            respostaDynamic.Add(resposta);
+            _respostaDynamic.Add(page, respostaDynamic);
+        }
+
+        public void RemoveDynamicResposta(int page, int id)
+        {
+            List<RespostaDynamic> respostaDynamic = _respostaDynamic[page];
+            if (respostaDynamic != null)
+            {
+                foreach (RespostaDynamic resposta in respostaDynamic)
+                {
+                    if (resposta.Id == id)
+                        respostaDynamic.Remove(resposta);
+                }
+                _respostaDynamic.Add(page, respostaDynamic);
+            }
+        }
+
+        public List<RespostaDynamic> GetDynamicList(int page)
+        {
+            List<RespostaDynamic> respostaDynamic = new List<RespostaDynamic>();
+            if (_respostaDynamic.ContainsKey(page))
+                return _respostaDynamic[page];
+            return respostaDynamic;
+        }        
+
+        private List<string> InitOpenRespostaList(int page, int size)
         {
             List<string> options = new List<string>();
             for (int i = 0; i < size; i++)
@@ -148,17 +183,17 @@ namespace SurveyMobile.Droid.Domain.Survey
             return options;
         }
 
-        public void updateOpenOption(int page, int option, string text)
+        public void UpdateOpenResposta(int page, int option, string text)
         {
             List<string> options = _openOptions[page];
             if (options == null)
-                options = initOpenOptionList(page, ((Questao)_questoes[page]).getResposta().Count);// ((Question)this.surveyList.get(page)).getOptions().getValues().size());
+                options = InitOpenRespostaList(page, ((Questao)_questoes[page]).getResposta().Count);// ((Question)this.surveyList.get(page)).getOptions().getValues().size());
 
             options.Insert(option, text);
             _openOptions.Add(page, options);
         }
 
-        public string getOpenOption(int page, int option)
+        public string GetOpenResposta(int page, int option)
         {
             string ret = "";
             try
@@ -180,7 +215,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             }
         }
 
-        public void updateGridOption(int page, int id, string text)
+        public void UpdateGridResposta(int page, int id, string text)
         {
             Dictionary<int, string> options = _gridOptions[page];
             if (options == null)
@@ -192,7 +227,7 @@ namespace SurveyMobile.Droid.Domain.Survey
 
         public string getGridOption(int page, int option)
         {
-            String ret = "";//BuildConfig.VERSION_NAME;
+            string ret = "";//BuildConfig.VERSION_NAME;
             Dictionary<int, string> options = _gridOptions[page];
             if (options == null)
                 return ret;
@@ -204,7 +239,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             return value;
         }
 
-        public int getLastFormPositionGrid(int page)
+        public int GetLastFormPositionGrid(int page)
         {
             int lastPosition = _lastFormPositionGrid[page];
             if (lastPosition == null)
@@ -213,12 +248,12 @@ namespace SurveyMobile.Droid.Domain.Survey
             return lastPosition;
         }
 
-        public void updateFormPosition(int page, int formPosition)
+        public void UpdateFormPosition(int page, int formPosition)
         {
             _lastFormPositionGrid.Add(page, formPosition);
         }
 
-        public void removeGrid(int page, int formPosition, int formSize)
+        public void RemoveGrid(int page, int formPosition, int formSize)
         {
             Dictionary<int, string> options = _gridOptions[page];
             if (options != null)
@@ -231,7 +266,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             _gridOptions.Add(page, options);
         }
 
-        public int optionDynamicGenerateId(int id, int page)
+        public int RespostaDynamicGenerateId(int id, int page)
         {
             if (_lastIds.ContainsKey(page))
                 id = _lastIds[page] + 1;
@@ -243,7 +278,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         public void Clear()
         {
             _optionsSelected = new Dictionary<int, List<string>>();
-            _dynamicOptions = new Dictionary<int, int>();
+            _respostaDynamic  = new Dictionary<int, List<RespostaDynamic>>();
             _openOptions = new Dictionary<int, List<string>>();
             _gridOptions = new Dictionary<int, Dictionary<int, string>>();
             _lastFormPositionGrid = new Dictionary<int, int>();
@@ -260,7 +295,7 @@ namespace SurveyMobile.Droid.Domain.Survey
                 if (_optionsSelected[i].Count > 0) { return true; }
                 return false;
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 Log.Error(TAG, e.Message, e);
                 return false;
@@ -330,7 +365,7 @@ namespace SurveyMobile.Droid.Domain.Survey
                     }
                     return page;
                 }
-            }            
+            }
             return jumpToPage;
         }
 
@@ -338,135 +373,183 @@ namespace SurveyMobile.Droid.Domain.Survey
         {
             string operador = regra.Operador;
             int[] ruleOptions = regra.Opcoes;
-            List<int> optionsSelected = getOptionsSelected(page);
+            List<int> optionsSelected = GetRespostaSelected(page);
             if (ruleOptions.Count() <= 0)
-            {
                 return false;
-            }
+
             int value = (int)ruleOptions.GetValue(0);
             if (operador == "+")
                 return optionsSelected.Contains(value);
 
             if (operador == "-")
                 return !optionsSelected.Contains(value);
-            else if (string.IsNullOrEmpty(operador)) {
+            else if (string.IsNullOrEmpty(operador))
                 return optionsSelected.Count == 0;
-            } else {
+            else
+                return false;
+        }
+
+        private bool isSatisfiesAllTheRulesMultipleChoice(Regra regra, int page)
+        {
+            string operador = regra.Operador;
+            int[] ruleOptions = regra.Opcoes;
+            List<int> optionsSelected = GetRespostaSelected(page);
+            if (operador == "*")
+                return optionsSelected.Count == _questoes[page].getResposta().Count;//((Question)this.surveyList.get(page)).getOptions().getValues().size();
+            else
+            {
+                if (operador == "+")
+                    return optionsSelected.Except(ruleOptions).Any();
+                if (operador == "-")
+                    return !optionsSelected.Except(ruleOptions).Any();
+                else if (string.IsNullOrEmpty(operador))
+                    return optionsSelected.Count == 0;
+                else
+                    return false;
+            }
+        }
+
+        private bool isSatisfiesAllTheRulesOpenChoice(Regra regra, int page)
+        {
+            bool satisfiesAllTheRules = false;
+            try
+            {
+                string operador = regra.Operador;
+                List<string> openOptionsValues = _openOptions[page];
+                foreach (int opcao in regra.Opcoes)
+                {
+                    int pos = opcao;
+                    int type = _questoes[page].TipoQuestao;
+                    if (type == 3)
+                    {
+                        satisfiesAllTheRules = compareValuesWithOperator(operador, Convert.ToInt64(openOptionsValues[pos]), regra.Compativel);
+                        continue;
+                    }
+                    else if (type == 1)
+                    {
+                        try
+                        {
+                            DateTime optionDate = convertToDate(openOptionsValues[pos]);
+                            DateTime ruleDate = convertToDate(regra.Compativel.ToString());
+                            if (!(optionDate == null || ruleDate == null))
+                            {
+                                satisfiesAllTheRules = compareValuesWithOperator(operador, Convert.ToInt64(optionDate.GetDateTimeFormats()), Convert.ToInt64(ruleDate.GetDateTimeFormats()));
+                                continue;
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            continue;
+                        }
+                    }
+                    else if (type == 2)
+                    {
+                        try
+                        {
+                            DateTime optionTime = convertToTime(openOptionsValues[pos]);
+                            DateTime ruleTime = convertToTime(regra.Compativel.ToString());
+                            if (!(optionTime == null || ruleTime == null))
+                            {
+                                satisfiesAllTheRules = compareValuesWithOperator(operador, Convert.ToInt64(optionTime.GetDateTimeFormats()), Convert.ToInt64(ruleTime.GetDateTimeFormats()));
+                                continue;
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    if (satisfiesAllTheRules)
+                    {
+                        return satisfiesAllTheRules;
+                    }
+                }
+                //for (int i = 0; i < regra.Opcoes.Count(); i++)
+                //{
+                //    int pos = i;
+                //    int type = _questoes[page].TipoQuestao;
+                //    if (type == 3)
+                //    {
+                //        satisfiesAllTheRules = compareValuesWithOperator(operador, Convert.ToInt64(openOptionsValues[pos]), regra.Compativel);
+                //        continue;
+                //    }
+                //    else if (type == 1)
+                //    {
+                //        try
+                //        {
+                //            DateTime optionDate = convertToDate(openOptionsValues[pos]);
+                //            DateTime ruleDate = convertToDate(regra.Compativel.ToString());
+                //            if (!(optionDate == null || ruleDate == null))
+                //            {
+                //                satisfiesAllTheRules = compareValuesWithOperator(operador, Convert.ToInt64(optionDate.GetDateTimeFormats()), Convert.ToInt64(ruleDate.GetDateTimeFormats()));
+                //                continue;
+                //            }
+                //        }
+                //        catch (Exception e)
+                //        {
+                //            continue;
+                //        }
+                //    }
+                //    else if (type == 2)
+                //    {
+                //        try
+                //        {
+                //            DateTime optionTime = convertToTime(openOptionsValues[pos]);
+                //            DateTime ruleTime = convertToTime(regra.Compativel.ToString());
+                //            if (!(optionTime == null || ruleTime == null))
+                //            {
+                //                satisfiesAllTheRules = compareValuesWithOperator(operador, Convert.ToInt64(optionTime.GetDateTimeFormats()), Convert.ToInt64(ruleTime.GetDateTimeFormats()));
+                //                continue;
+                //            }
+                //        }
+                //        catch (Exception e)
+                //        {
+                //            continue;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        continue;
+                //    }
+                //    if (satisfiesAllTheRules)
+                //    {
+                //        return satisfiesAllTheRules;
+                //    }
+                //}
+                return satisfiesAllTheRules;
+            }
+            catch (Exception e)
+            {
+                Log.Error(TAG, e.Message, e);
                 return false;
             }
         }
 
-        //private boolean isSatisfiesAllTheRulesMultipleChoice(Rule rule, int page)
-        //{
-        //    String operator = rule.getOperator();
-        //    List<Integer> ruleOptions = rule.getOptions();
-        //    List<Integer> optionsSelected = getOptionsSelected(page);
-        //    if (operator.equals(Marker.ANY_MARKER)) {
-        //        return optionsSelected.size() == ((Question)this.surveyList.get(page)).getOptions().getValues().size();
-        //    } else {
-        //        if (operator.equals(Marker.ANY_NON_NULL_MARKER)) {
-        //            return optionsSelected.containsAll(ruleOptions);
-        //        }
-        //        if (operator.equals("-")) {
-        //            return !optionsSelected.containsAll(ruleOptions);
-        //        } else if (operator.isEmpty()) {
-        //            return optionsSelected.isEmpty();
-        //        } else {
-        //            return false;
-        //        }
-        //    }
-        //}
-
-        //private boolean isSatisfiesAllTheRulesOpenChoice(Rule rule, int page)
-        //{
-        //    boolean satisfiesAllTheRules = false;
-        //    try
-        //    {
-        //        String operator = rule.getOperator();
-        //        List<String> openOptionsValues = (List)this.openOptions.get(Integer.valueOf(page));
-        //        for (Integer intValue : rule.getOptions())
-        //        {
-        //            int pos = intValue.intValue();
-        //            int type = ((Option)((Question)this.surveyList.get(page)).getOptions().getValues().get(pos)).getType();
-        //            if (type == 3)
-        //            {
-        //                satisfiesAllTheRules = compareValuesWithOperator(operator, (long)Integer.parseInt((String)openOptionsValues.get(pos)), (long)Integer.parseInt(rule.getValue()));
-        //                continue;
-        //            }
-        //            else if (type == 1)
-        //            {
-        //                try
-        //                {
-        //                    Date optionDate = convertToDate((String)openOptionsValues.get(pos));
-        //                    Date ruleDate = convertToDate(rule.getValue());
-        //                    if (!(optionDate == null || ruleDate == null))
-        //                    {
-        //                        satisfiesAllTheRules = compareValuesWithOperator(operator, optionDate.getTime(), ruleDate.getTime());
-        //                        continue;
-        //                    }
-        //                }
-        //                catch (Exception e)
-        //                {
-        //                    continue;
-        //                }
-        //            }
-        //            else if (type == 2)
-        //            {
-        //                try
-        //                {
-        //                    Date optionTime = convertToTime((String)openOptionsValues.get(pos));
-        //                    Date ruleTime = convertToTime(rule.getValue());
-        //                    if (!(optionTime == null || ruleTime == null))
-        //                    {
-        //                        satisfiesAllTheRules = compareValuesWithOperator(operator, optionTime.getTime(), ruleTime.getTime());
-        //                        continue;
-        //                    }
-        //                }
-        //                catch (Exception e2)
-        //                {
-        //                    continue;
-        //                }
-        //            }
-        //            else
-        //            {
-        //                continue;
-        //            }
-        //            if (satisfiesAllTheRules)
-        //            {
-        //                return satisfiesAllTheRules;
-        //            }
-        //        }
-        //        return satisfiesAllTheRules;
-        //    }
-        //    catch (Exception e3)
-        //    {
-        //        Log.e(TAG, e3.getMessage(), e3);
-        //        return false;
-        //    }
-        //}
-
-        //private boolean compareValuesWithOperator(String operator, long optionValue, long ruleValue)
-        //{
-        //    if (operator.equals(">")) {
-        //        if (optionValue > ruleValue)
-        //        {
-        //            return true;
-        //        }
-        //        return false;
-        //    } else if (operator.equals("<")) {
-        //        return optionValue < ruleValue;
-        //    } else if (operator.equals("=")) {
-        //        return optionValue == ruleValue;
-        //    } else if (operator.equals(">=")) {
-        //        return optionValue >= ruleValue;
-        //    } else if (operator.equals("<=")) {
-        //        return optionValue <= ruleValue;
-        //    } else if (!operator.equals("!=")) {
-        //        return false;
-        //    } else {
-        //        return optionValue != ruleValue;
-        //    }
-        //}
+        private bool compareValuesWithOperator(string operador, long optionValue, long ruleValue)
+        {
+            if (operador == ">")
+            {
+                if (optionValue > ruleValue)
+                    return true;
+                return false;
+            }
+            else if (operador == "<")
+                return optionValue < ruleValue;
+            else if (operador == "=")
+                return optionValue == ruleValue;
+            else if (operador == ">=")
+                return optionValue >= ruleValue;
+            else if (operador == "<=")
+                return optionValue <= ruleValue;
+            else if (!(operador == "!="))
+                return false;
+            else
+                return optionValue != ruleValue;
+        }
 
         private int pageFrom(int questaoId)
         {
@@ -478,15 +561,203 @@ namespace SurveyMobile.Droid.Domain.Survey
             return -1;
         }
 
-        public void setStartQuestionario(long startQuestionario)
+        public void SetStartQuestionario(long startQuestionario)
         {
             _startQuestionario = startQuestionario;
         }
 
         public void FinishQuestionario(long finishQuestionario)
         {
-            _questionarioAtual.setFinish(finishQuestionario);
-            _questionarioAtual.setDuration(finishQuestionario - _startQuestionario);
+            _questionarioAtual.Finalizado = finishQuestionario;
+            _questionarioAtual.Duracao = finishQuestionario - _startQuestionario;
+        }
+
+        public void UpdateGpsPosition(string latitude, string longitude)
+        {
+            _questionarioAtual.Lat = latitude;
+            _questionarioAtual.Lng = longitude;
+        }
+
+        public void UpdateBatteryPct(string batteryPct)
+        {
+            _questionarioAtual.BatteryPct = batteryPct;
+        }
+
+        public Questionario GenerateQuestionario(int id)
+        {
+            _questionarioAtual.Questoes = GenerateQuestaoToSend();
+            _questionarioAtual.Id = id;
+            Questionario entity = new Questionario();
+            entity.QuestionarioId = id;
+            entity.Json = JsonConvert.SerializeObject(_questionarioAtual);
+            return entity;
+        }
+
+        private List<SendQuestao> GenerateQuestaoToSend()
+        {
+            List<SendQuestao> questoes = new List<SendQuestao>();
+            for (int i = 0; i < _questoes.Count; i++)
+            {
+                Questao q = _questoes[i];
+                List<SendResposta> respostas = GenerateRespostaToSend(q.TipoQuestao, i);
+                if (respostas.Count > 0)
+                {
+                    SendQuestao sendQuestao = new SendQuestao();
+                    sendQuestao.Id = q.QuestaoId;
+                    sendQuestao.Respostas = respostas;
+                    questoes.Add(sendQuestao);
+                }
+            }
+            return questoes;
+        }
+
+        private List<SendResposta> GenerateRespostaToSend(int type, int page)
+        {
+            List<SendResposta> options = new List<SendResposta>();
+            if (type == 0)
+            {
+                return generateOptionsToSendSingleChoice(page);
+            }
+            if (type == 1)
+            {
+                return generateOptionsToSendMultipleChoice(page);
+            }
+            if (type == 2)
+            {
+                return generateOptionsToSendOpenChoice(page);
+            }
+            if (type == 3)
+            {
+                return generateOptionsToSendGridChoice(page);
+            }
+            return options;
+        }
+
+        private List<SendResposta> GenerateOptionsToSendSingleChoice(int page)
+        {
+            List<SendResposta> sendRespostas = new List<SendResposta>();
+            List<Resposta> respostas = _questoes[page].Respostas;
+            if (GetRespostaSelected(page).Count > 0)
+            {
+                SendResposta sendResposta;
+                int pos = GetRespostaSelected(page)[0];
+                if (pos < respostas.Count)
+                {
+                    sendResposta = new SendResposta();
+                    sendResposta.Descricao = respostas[pos].Descricao;
+                    sendRespostas.Add(sendResposta);
+                }
+
+                foreach (var resposta in GetDynamicList(page))
+                {
+                    if (GetRespostaSelected(page).Contains(resposta.Id))
+                    {
+                        sendResposta = new SendResposta();
+                        sendResposta.Descricao = resposta.Descicao;
+                        sendRespostas.Add(sendResposta);
+                    }
+                }
+            }
+            return sendRespostas;
+        }
+
+        private List<SendResposta> GenerateOptionsToSendMultipleChoice(int page)
+        {
+            List<SendResposta> sendRespostas = new List<SendResposta>();
+            List<Resposta> respostas = _questoes[page].Respostas;
+            foreach (int pos in GetRespostaSelected(page))
+            {
+                if (pos < respostas.Count)
+                {
+                    SendResposta sendResposta = new SendResposta();
+                    sendResposta.Descricao = respostas[pos].Descricao;
+                    sendRespostas.Add(sendResposta);
+                }
+            }
+
+            //for (DynamicOption d : getDynamicList(page))
+            //{
+            //    if (getOptionsSelected(page).contains(Integer.valueOf(d.getId())))
+            //    {
+            //        sendOption = new SendResposta();
+            //        sendOption.setLabel(d.getLabel());
+            //        options.add(sendOption);
+            //    }
+            //}
+            return sendRespostas;
+        }
+
+        //private List<SendResposta> GenerateOptionsToSendOpenChoice(int page)
+        //{
+        //    List<SendResposta> options = new ArrayList();
+        //    List<Option> questionOptionsValues = ((Question)this.surveyList.get(page)).getOptions().getValues();
+        //    for (int i = 0; i < questionOptionsValues.size(); i++)
+        //    {
+        //        String value = getOpenOption(page, i);
+        //        String label = ((Option)questionOptionsValues.get(i)).getLabel();
+        //        SendResposta sendOption = new SendResposta();
+        //        sendOption.setLabel(label);
+        //        sendOption.setValue(value);
+        //        options.add(sendOption);
+        //    }
+        //    return options;
+        //}
+
+        //private List<SendResposta> GenerateOptionsToSendGridChoice(int page)
+        //{
+        //    List<SendResposta> options = new ArrayList();
+        //    List<Option> questionOptionsValues = ((Question)this.surveyList.get(page)).getOptions().getValues();
+        //    for (int i = 0; i <= getLastFormPositionGrid(page); i++)
+        //    {
+        //        int formPosition = questionOptionsValues.size() * i;
+        //        int relativePos = 0;
+        //        for (int j = formPosition; j < questionOptionsValues.size() + formPosition; j++)
+        //        {
+        //            String value = getGridOption(page, j);
+        //            if (!value.isEmpty())
+        //            {
+        //                int relativePos2 = relativePos + 1;
+        //                String label = ((Option)questionOptionsValues.get(relativePos)).getLabel();
+        //                SendResposta sendOption = new SendResposta();
+        //                sendOption.setLabel(label);
+        //                sendOption.setValue(value);
+        //                sendOption.setGridPosition(Integer.valueOf(i + 1));
+        //                options.add(sendOption);
+        //                relativePos = relativePos2;
+        //            }
+        //        }
+        //    }
+        //    return options;
+        //}
+
+        private DateTime convertToDate(string dateString)
+        {
+            DateTime convertedDate = new DateTime();
+            try
+            {
+                convertedDate = Convert.ToDateTime(dateString);
+            }
+            catch (Exception e)
+            {
+                Log.Error(TAG, e.Message, e);
+                //e.PrintStackTrace();
+            }
+            return Convert.ToDateTime(convertedDate.ToString("dd/MM/yyyy"));
+        }
+
+        private DateTime convertToTime(string dateString)
+        {
+            DateTime convertedDate = new DateTime();
+            try
+            {
+                convertedDate = Convert.ToDateTime(dateString);
+            }
+            catch (Exception e)
+            {
+                Log.Error(TAG, e.Message, e);
+                //e.printStackTrace();
+            }
+            return Convert.ToDateTime(convertedDate.ToString("HH:mm"));
         }
     }
 }

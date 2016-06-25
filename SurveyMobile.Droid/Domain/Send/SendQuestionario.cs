@@ -1,28 +1,57 @@
+using System.Collections.Generic;
+
 namespace SurveyMobile.Droid.Domain.Send
 {
     public class SendQuestionario
     {
-        private long _finish;
-        private long _duration;
+        public int Id;
+        public string BatteryPct;
+        public long Duracao;
+        public long Finalizado;
+        public string Lat;
+        public string Lng;
+        public List<SendQuestao> Questoes;
+        //private string _batteryPct;
+        //private long _duration;
+        //private long _finish;
+        //private int _id;
+        //private string _lat;
+        //private string _lng;
 
-        public long getFinish()
-        {
-            return _finish;
-        }
+        //#region Getters
+        //public string getBatteryPct()
+        //{
+        //    return _batteryPct;
+        //}
 
-        public long getDuration()
-        {
-            return _duration;
-        }
+        //public long getFinish()
+        //{
+        //    return _finish;
+        //}
 
-        public void setFinish(long finish)
-        {
-            _finish = finish;
-        }
+        //public long getDuration()
+        //{
+        //    return _duration;
+        //}
 
-        public void setDuration(long duration)
-        {
-            _duration = duration;
-        }
+
+        //#endregion
+
+        //#region Setters
+        //public void setBatteryPct(string batteryPct)
+        //{
+        //    _batteryPct = batteryPct;
+        //}
+
+        //public void setFinish(long finish)
+        //{
+        //    _finish = finish;
+        //}
+
+        //public void setDuration(long duration)
+        //{
+        //    _duration = duration;
+        //}
+        //#endregion
     }
 }

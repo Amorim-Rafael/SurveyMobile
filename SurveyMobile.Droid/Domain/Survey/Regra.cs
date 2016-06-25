@@ -11,6 +11,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         public virtual Questao Questao { get; set; }
         public int[] Opcoes { get; set; }
         public string Operador { get; set; }
+        public int Compativel { get; set; }
         //private int _regraId { get; set; }
         //private int _questaoId { get; set; }
         //private Questao _questao { get; set; }

@@ -113,13 +113,16 @@
     <Compile Include="Domain\AppPreferences.cs" />
     <Compile Include="Domain\BaseObject.cs" />
     <Compile Include="Domain\GlobalParams.cs" />
+    <Compile Include="Domain\Send\SendQuestao.cs" />
     <Compile Include="Domain\Send\SendQuestionario.cs" />
+    <Compile Include="Domain\Send\SendResposta.cs" />
     <Compile Include="Domain\Survey\Logica.cs" />
     <Compile Include="Domain\Survey\Questao.cs" />
     <Compile Include="Domain\Survey\Questionario.cs" />
     <Compile Include="Domain\Survey\QuestionarioManager.cs" />
     <Compile Include="Domain\Survey\Regra.cs" />
     <Compile Include="Domain\Survey\Resposta.cs" />
+    <Compile Include="Domain\Survey\RespostaDynamic.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="UserInterfaceLayer\Activities\QuestionarioActivity.cs" />
     <Compile Include="UserInterfaceLayer\Adapter\CustomAdapter.cs" />
@@ -142,6 +145,7 @@
     <Compile Include="UserInterfaceLayer\Fragments\MapaFragment.cs" />
     <Compile Include="UserInterfaceLayer\Fragments\OneChoiceQuestionFragment.cs" />
     <Compile Include="UserInterfaceLayer\Fragments\ResumoFragment.cs" />
+    <Compile Include="UserInterfaceLayer\Layout\EditNewRespostaLayout.cs" />
     <Compile Include="UserInterfaceLayer\Views\NonSwipeableViewPager.cs" />
     <Compile Include="UserInterfaceLayer\Widget\QuestionarioWidgetGenerator.cs" />
   </ItemGroup>
@@ -169,7 +173,7 @@
     <AndroidResource Include="Resources\layout\Consolidado.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\layout1.axml">
+    <AndroidResource Include="Resources\layout\layout_edit_new_resposta.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\table.axml">
@@ -267,6 +271,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_logo_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_resposta_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_resposta_del.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

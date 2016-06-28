@@ -27,7 +27,6 @@ C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\tabs.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\listitemfooter.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\consolidado.xml
-C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\layout1.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\table.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\activity_splash.xml
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\activity_list.xml
@@ -54,5 +53,8 @@ C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\uploadflags.txt
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.PCL.dll.mdb
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\fragment_onechoice_questionario.xml
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\layout\layout_edit_new_resposta.xml
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\drawable\ic_resposta_add.png
+C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\res\drawable\ic_resposta_del.png
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\obj\Debug\SurveyMobile.Droid.dll.mdb
 C:\Users\Rafael\Documents\Visual Studio 2015\Projects\SurveyMobile\SurveyMobile.Droid\bin\Debug\SurveyMobile.Droid.dll.mdb

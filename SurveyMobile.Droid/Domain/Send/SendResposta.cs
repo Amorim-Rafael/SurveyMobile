@@ -8,6 +8,7 @@ namespace SurveyMobile.Droid.Domain.Send
     {
         public int RespostaId { get; set; }
         public string Descricao { get; set; }
+        public int GridPosition { get; set; }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {

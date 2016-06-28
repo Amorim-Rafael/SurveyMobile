@@ -19,24 +19,24 @@ namespace SurveyMobile.Droid.Domain.Survey
         private Dictionary<int, int> _lastFormPositionGrid;
         private Dictionary<int, int> _lastIds;
         private Dictionary<int, List<string>> _openOptions;
-        private Dictionary<int, List<string>> _optionsSelected;
-        private List<Questao> _questoes;
+        private Dictionary<int, List<string>> _respostaSelected = new Dictionary<int, List<string>>();
+        private static List<Questao> _questoes;
         private long _startQuestionario;
         private QuestionarioActivity _questionarioActivity;
 
 
-        public QuestionarioManager()
-        {
-            TAG = "QuestionarioManager";
-            _questionarioAtual = new SendQuestionario();
-            _respostaDynamic = new Dictionary<int, List<RespostaDynamic>>();
-            _gridOptions = new Dictionary<int, Dictionary<int, string>>();
-            _lastFormPositionGrid = new Dictionary<int, int>();
-            _lastIds = new Dictionary<int, int>();
-            _openOptions = new Dictionary<int, List<string>>();
-            _optionsSelected = new Dictionary<int, List<string>>();
-            _questoes = new List<Questao>();
-        }
+        //public QuestionarioManager()
+        //{
+        //    TAG = "QuestionarioManager";
+        //    _questionarioAtual = new SendQuestionario();
+        //    _respostaDynamic = new Dictionary<int, List<RespostaDynamic>>();
+        //    _gridOptions = new Dictionary<int, Dictionary<int, string>>();
+        //    _lastFormPositionGrid = new Dictionary<int, int>();
+        //    _lastIds = new Dictionary<int, int>();
+        //    _openOptions = new Dictionary<int, List<string>>();
+        //    _respostaSelected = new Dictionary<int, List<string>>();
+        //    questoes = new List<Questao>();
+        //}
 
         public static QuestionarioManager GetInstance()
         {
@@ -56,14 +56,14 @@ namespace SurveyMobile.Droid.Domain.Survey
 
         public List<Questao> getQuestoesList(List<Questao> questoes)
         {
-            return _questoes;
+            return questoes;
         }
 
         public List<int> GetRespostaSelected(int page)
         {
             List<int> option = new List<int>();
-            if (_optionsSelected.ContainsKey(page))
-                return _optionsSelected[page].Select(s => int.Parse(s)).ToList();
+            if (_respostaSelected.ContainsKey(page))
+                return _respostaSelected[page].Select(s => int.Parse(s)).ToList();
 
             return option;
         }
@@ -85,21 +85,21 @@ namespace SurveyMobile.Droid.Domain.Survey
 
         public void AddRespostaSelected(int page, int option)
         {
-            List<string> options = _optionsSelected[page];
+            List<string> options = _respostaSelected[page];
             if (options == null)
                 options = new List<string>();
 
             options.Add(option.ToString());
 
-            _optionsSelected.Add(page, options);
+            _respostaSelected.Add(page, options);
         }
 
         public void UpdateFirstRespostaSelected(int page, int option)
         {
             List<string> options;
-            if (_optionsSelected.Count > 0)
+            if (_respostaSelected.Count > 0)
             {
-                options = _optionsSelected[page];
+                options = _respostaSelected[page];
                 if (options == null)
                 {
                     options = new List<string>();
@@ -113,25 +113,25 @@ namespace SurveyMobile.Droid.Domain.Survey
                 options = new List<string>();
                 options.Add(option.ToString());
             }
-            _optionsSelected.Add(page, options);
+            _respostaSelected.Add(page, options);
         }
 
         public void RemoveRespostaSelected(int page, int option)
         {
-            List<string> options = _optionsSelected[page];
+            List<string> options = _respostaSelected[page];
             if (options != null)
             {
                 options.Remove(option.ToString());
-                _optionsSelected.Add(page, options);
+                _respostaSelected.Add(page, options);
             }
         }
 
         public int LastRespostaSelected(int page)
         {
-            if (!_optionsSelected.ContainsKey(page))
+            if (!_respostaSelected.ContainsKey(page))
                 return -1;
 
-            List<string> options = _optionsSelected[page];
+            List<string> options = _respostaSelected[page];
             if (options != null)
                 return -1;
 
@@ -225,7 +225,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             _gridOptions.Add(page, options);
         }
 
-        public string getGridOption(int page, int option)
+        public string GetGridOption(int page, int option)
         {
             string ret = "";//BuildConfig.VERSION_NAME;
             Dictionary<int, string> options = _gridOptions[page];
@@ -277,7 +277,7 @@ namespace SurveyMobile.Droid.Domain.Survey
 
         public void Clear()
         {
-            _optionsSelected = new Dictionary<int, List<string>>();
+            _respostaSelected = new Dictionary<int, List<string>>();
             _respostaDynamic  = new Dictionary<int, List<RespostaDynamic>>();
             _openOptions = new Dictionary<int, List<string>>();
             _gridOptions = new Dictionary<int, Dictionary<int, string>>();
@@ -291,8 +291,8 @@ namespace SurveyMobile.Droid.Domain.Survey
         {
             try
             {
-                if (_questoes[i].getTipoQuestao() != 1) { return true; }
-                if (_optionsSelected[i].Count > 0) { return true; }
+                if (_questoes[i].TipoQuestao != 1) { return true; }
+                if (_respostaSelected[i].Count > 0) { return true; }
                 return false;
             }
             catch (Exception e)
@@ -595,7 +595,7 @@ namespace SurveyMobile.Droid.Domain.Survey
 
         private List<SendQuestao> GenerateQuestaoToSend()
         {
-            List<SendQuestao> questoes = new List<SendQuestao>();
+            List<SendQuestao> sendQuestoes = new List<SendQuestao>();
             for (int i = 0; i < _questoes.Count; i++)
             {
                 Questao q = _questoes[i];
@@ -605,10 +605,10 @@ namespace SurveyMobile.Droid.Domain.Survey
                     SendQuestao sendQuestao = new SendQuestao();
                     sendQuestao.Id = q.QuestaoId;
                     sendQuestao.Respostas = respostas;
-                    questoes.Add(sendQuestao);
+                    sendQuestoes.Add(sendQuestao);
                 }
             }
-            return questoes;
+            return sendQuestoes;
         }
 
         private List<SendResposta> GenerateRespostaToSend(int type, int page)
@@ -616,19 +616,19 @@ namespace SurveyMobile.Droid.Domain.Survey
             List<SendResposta> options = new List<SendResposta>();
             if (type == 0)
             {
-                return generateOptionsToSendSingleChoice(page);
+                return GenerateOptionsToSendSingleChoice(page);
             }
             if (type == 1)
             {
-                return generateOptionsToSendMultipleChoice(page);
+                return GenerateOptionsToSendMultipleChoice(page);
             }
             if (type == 2)
             {
-                return generateOptionsToSendOpenChoice(page);
+                return GenerateOptionsToSendOpenChoice(page);
             }
             if (type == 3)
             {
-                return generateOptionsToSendGridChoice(page);
+                return GenerateOptionsToSendGridChoice(page);
             }
             return options;
         }
@@ -665,70 +665,68 @@ namespace SurveyMobile.Droid.Domain.Survey
         {
             List<SendResposta> sendRespostas = new List<SendResposta>();
             List<Resposta> respostas = _questoes[page].Respostas;
+            SendResposta sendResposta;
             foreach (int pos in GetRespostaSelected(page))
             {
                 if (pos < respostas.Count)
                 {
-                    SendResposta sendResposta = new SendResposta();
+                    sendResposta = new SendResposta();
                     sendResposta.Descricao = respostas[pos].Descricao;
                     sendRespostas.Add(sendResposta);
                 }
             }
 
-            //for (DynamicOption d : getDynamicList(page))
-            //{
-            //    if (getOptionsSelected(page).contains(Integer.valueOf(d.getId())))
-            //    {
-            //        sendOption = new SendResposta();
-            //        sendOption.setLabel(d.getLabel());
-            //        options.add(sendOption);
-            //    }
-            //}
+            foreach (var rd in GetDynamicList(page))
+            {
+                if (GetRespostaSelected(page).Contains(rd.Id))
+                {
+                    sendResposta = new SendResposta();
+                    sendResposta.Descricao = rd.Descicao;
+                    sendRespostas.Add(sendResposta);
+                }
+            }
             return sendRespostas;
         }
 
-        //private List<SendResposta> GenerateOptionsToSendOpenChoice(int page)
-        //{
-        //    List<SendResposta> options = new ArrayList();
-        //    List<Option> questionOptionsValues = ((Question)this.surveyList.get(page)).getOptions().getValues();
-        //    for (int i = 0; i < questionOptionsValues.size(); i++)
-        //    {
-        //        String value = getOpenOption(page, i);
-        //        String label = ((Option)questionOptionsValues.get(i)).getLabel();
-        //        SendResposta sendOption = new SendResposta();
-        //        sendOption.setLabel(label);
-        //        sendOption.setValue(value);
-        //        options.add(sendOption);
-        //    }
-        //    return options;
-        //}
+        private List<SendResposta> GenerateOptionsToSendOpenChoice(int page)
+        {
+            List<SendResposta> sendRespostas = new List<SendResposta>();
+            List<Resposta> respostas = _questoes[page].Respostas;
+            SendResposta sendResposta;
+            for (int i = 0; i < respostas.Count; i++)
+            {
+                sendResposta = new SendResposta();
+                sendResposta.RespostaId = respostas[i].RespostaId;
+                sendResposta.Descricao = GetOpenResposta(page, i);
+                sendRespostas.Add(sendResposta);
+            }
+            return sendRespostas;
+        }
 
-        //private List<SendResposta> GenerateOptionsToSendGridChoice(int page)
-        //{
-        //    List<SendResposta> options = new ArrayList();
-        //    List<Option> questionOptionsValues = ((Question)this.surveyList.get(page)).getOptions().getValues();
-        //    for (int i = 0; i <= getLastFormPositionGrid(page); i++)
-        //    {
-        //        int formPosition = questionOptionsValues.size() * i;
-        //        int relativePos = 0;
-        //        for (int j = formPosition; j < questionOptionsValues.size() + formPosition; j++)
-        //        {
-        //            String value = getGridOption(page, j);
-        //            if (!value.isEmpty())
-        //            {
-        //                int relativePos2 = relativePos + 1;
-        //                String label = ((Option)questionOptionsValues.get(relativePos)).getLabel();
-        //                SendResposta sendOption = new SendResposta();
-        //                sendOption.setLabel(label);
-        //                sendOption.setValue(value);
-        //                sendOption.setGridPosition(Integer.valueOf(i + 1));
-        //                options.add(sendOption);
-        //                relativePos = relativePos2;
-        //            }
-        //        }
-        //    }
-        //    return options;
-        //}
+        private List<SendResposta> GenerateOptionsToSendGridChoice(int page)
+        {
+            List<SendResposta> sendRespostas = new List<SendResposta>();
+            List<Resposta> respostas = _questoes[page].Respostas;
+            for (int i = 0; i <= GetLastFormPositionGrid(page); i++)
+            {
+                int formPosition = respostas.Count * i;
+                int relativePos = 0;
+                for (int j = formPosition; j < respostas.Count + formPosition; j++)
+                {
+                    if (!string.IsNullOrEmpty(GetGridOption(page, j)))
+                    {
+                        int relativePos2 = relativePos + 1;
+                        SendResposta sendResposta = new SendResposta();
+                        sendResposta.RespostaId = respostas[relativePos].RespostaId;
+                        sendResposta.Descricao = GetGridOption(page, j);
+                        sendResposta.GridPosition = i + 1;
+                        sendRespostas.Add(sendResposta);
+                        relativePos = relativePos2;
+                    }
+                }
+            }
+            return sendRespostas;
+        }
 
         private DateTime convertToDate(string dateString)
         {

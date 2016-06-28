@@ -3418,28 +3418,34 @@ namespace SurveyMobile.Droid
 			public const int ic_logo_back = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int ic_short_logo = 2130837625;
+			public const int ic_resposta_add = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int Icon = 2130837626;
-			
-			// aapt resource value: 0x7f020080
-			public const int notification_template_icon_bg = 2130837632;
+			public const int ic_resposta_del = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int places_ic_clear = 2130837627;
+			public const int ic_short_logo = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int places_ic_search = 2130837628;
+			public const int Icon = 2130837628;
+			
+			// aapt resource value: 0x7f020082
+			public const int notification_template_icon_bg = 2130837634;
 			
 			// aapt resource value: 0x7f02007d
-			public const int powered_by_google_dark = 2130837629;
+			public const int places_ic_clear = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int powered_by_google_light = 2130837630;
+			public const int places_ic_search = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int title_background = 2130837631;
+			public const int powered_by_google_dark = 2130837631;
+			
+			// aapt resource value: 0x7f020080
+			public const int powered_by_google_light = 2130837632;
+			
+			// aapt resource value: 0x7f020081
+			public const int title_background = 2130837633;
 			
 			static Drawable()
 			{
@@ -3454,11 +3460,11 @@ namespace SurveyMobile.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f09009b
-			public const int Text1 = 2131296411;
-			
 			// aapt resource value: 0x7f09009c
-			public const int action0 = 2131296412;
+			public const int Text1 = 2131296412;
+			
+			// aapt resource value: 0x7f09009d
+			public const int action0 = 2131296413;
 			
 			// aapt resource value: 0x7f090069
 			public const int action_bar = 2131296361;
@@ -3484,8 +3490,8 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f09006a
 			public const int action_context_bar = 2131296362;
 			
-			// aapt resource value: 0x7f0900a0
-			public const int action_divider = 2131296416;
+			// aapt resource value: 0x7f0900a1
+			public const int action_divider = 2131296417;
 			
 			// aapt resource value: 0x7f090003
 			public const int action_menu_divider = 2131296259;
@@ -3504,6 +3510,9 @@ namespace SurveyMobile.Droid
 			
 			// aapt resource value: 0x7f09004c
 			public const int activity_chooser_view_content = 2131296332;
+			
+			// aapt resource value: 0x7f09009a
+			public const int add_resposta_icon = 2131296410;
 			
 			// aapt resource value: 0x7f090010
 			public const int adjust_height = 2131296272;
@@ -3538,8 +3547,8 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f090053
 			public const int buttonPanel = 2131296339;
 			
-			// aapt resource value: 0x7f09009d
-			public const int cancel_action = 2131296413;
+			// aapt resource value: 0x7f09009e
+			public const int cancel_action = 2131296414;
 			
 			// aapt resource value: 0x7f09001d
 			public const int center = 2131296285;
@@ -3553,8 +3562,8 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f090061
 			public const int checkbox = 2131296353;
 			
-			// aapt resource value: 0x7f0900a3
-			public const int chronometer = 2131296419;
+			// aapt resource value: 0x7f0900a4
+			public const int chronometer = 2131296420;
 			
 			// aapt resource value: 0x7f090020
 			public const int clip_horizontal = 2131296288;
@@ -3601,8 +3610,8 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f090090
 			public const int design_navigation_view = 2131296400;
 			
-			// aapt resource value: 0x7f0900b1
-			public const int detailsTable = 2131296433;
+			// aapt resource value: 0x7f0900b2
+			public const int detailsTable = 2131296434;
 			
 			// aapt resource value: 0x7f09002c
 			public const int disableHome = 2131296300;
@@ -3613,8 +3622,8 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f090022
 			public const int end = 2131296290;
 			
-			// aapt resource value: 0x7f0900a8
-			public const int end_padder = 2131296424;
+			// aapt resource value: 0x7f0900a9
+			public const int end_padder = 2131296425;
 			
 			// aapt resource value: 0x7f09003f
 			public const int enterAlways = 2131296319;
@@ -3679,8 +3688,8 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f09007d
 			public const int image_top_logo = 2131296381;
 			
-			// aapt resource value: 0x7f0900a7
-			public const int info = 2131296423;
+			// aapt resource value: 0x7f0900a8
+			public const int info = 2131296424;
 			
 			// aapt resource value: 0x7f090000
 			public const int item_touch_helper_previous_elevation = 2131296256;
@@ -3691,11 +3700,11 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f090017
 			public const int light = 2131296279;
 			
-			// aapt resource value: 0x7f0900a1
-			public const int line1 = 2131296417;
+			// aapt resource value: 0x7f0900a2
+			public const int line1 = 2131296418;
 			
-			// aapt resource value: 0x7f0900a5
-			public const int line3 = 2131296421;
+			// aapt resource value: 0x7f0900a6
+			public const int line3 = 2131296422;
 			
 			// aapt resource value: 0x7f09002a
 			public const int listMode = 2131296298;
@@ -3709,8 +3718,8 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f090098
 			public const int map = 2131296408;
 			
-			// aapt resource value: 0x7f09009f
-			public const int media_actions = 2131296415;
+			// aapt resource value: 0x7f0900a0
+			public const int media_actions = 2131296416;
 			
 			// aapt resource value: 0x7f090039
 			public const int middle = 2131296313;
@@ -3726,6 +3735,9 @@ namespace SurveyMobile.Droid
 			
 			// aapt resource value: 0x7f09003d
 			public const int never = 2131296317;
+			
+			// aapt resource value: 0x7f09009b
+			public const int new_resposta_label = 2131296411;
 			
 			// aapt resource value: 0x7f090089
 			public const int next_button = 2131296393;
@@ -3751,29 +3763,29 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f090045
 			public const int pin = 2131296325;
 			
-			// aapt resource value: 0x7f0900ab
-			public const int place_autocomplete_clear_button = 2131296427;
-			
-			// aapt resource value: 0x7f0900ad
-			public const int place_autocomplete_powered_by_google = 2131296429;
-			
-			// aapt resource value: 0x7f0900af
-			public const int place_autocomplete_prediction_primary_text = 2131296431;
-			
-			// aapt resource value: 0x7f0900b0
-			public const int place_autocomplete_prediction_secondary_text = 2131296432;
+			// aapt resource value: 0x7f0900ac
+			public const int place_autocomplete_clear_button = 2131296428;
 			
 			// aapt resource value: 0x7f0900ae
-			public const int place_autocomplete_progress = 2131296430;
+			public const int place_autocomplete_powered_by_google = 2131296430;
 			
-			// aapt resource value: 0x7f0900a9
-			public const int place_autocomplete_search_button = 2131296425;
+			// aapt resource value: 0x7f0900b0
+			public const int place_autocomplete_prediction_primary_text = 2131296432;
+			
+			// aapt resource value: 0x7f0900b1
+			public const int place_autocomplete_prediction_secondary_text = 2131296433;
+			
+			// aapt resource value: 0x7f0900af
+			public const int place_autocomplete_progress = 2131296431;
 			
 			// aapt resource value: 0x7f0900aa
-			public const int place_autocomplete_search_input = 2131296426;
+			public const int place_autocomplete_search_button = 2131296426;
 			
-			// aapt resource value: 0x7f0900ac
-			public const int place_autocomplete_separator = 2131296428;
+			// aapt resource value: 0x7f0900ab
+			public const int place_autocomplete_search_input = 2131296427;
+			
+			// aapt resource value: 0x7f0900ad
+			public const int place_autocomplete_separator = 2131296429;
 			
 			// aapt resource value: 0x7f090088
 			public const int prev_button = 2131296392;
@@ -3907,8 +3919,8 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f090028
 			public const int start = 2131296296;
 			
-			// aapt resource value: 0x7f09009e
-			public const int status_bar_latest_event_content = 2131296414;
+			// aapt resource value: 0x7f09009f
+			public const int status_bar_latest_event_content = 2131296415;
 			
 			// aapt resource value: 0x7f090074
 			public const int submit_area = 2131296372;
@@ -3925,17 +3937,17 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f09000f
 			public const int terrain = 2131296271;
 			
-			// aapt resource value: 0x7f0900a6
-			public const int text = 2131296422;
+			// aapt resource value: 0x7f0900a7
+			public const int text = 2131296423;
 			
-			// aapt resource value: 0x7f0900a4
-			public const int text2 = 2131296420;
+			// aapt resource value: 0x7f0900a5
+			public const int text2 = 2131296421;
 			
 			// aapt resource value: 0x7f09005c
 			public const int textSpacerNoButtons = 2131296348;
 			
-			// aapt resource value: 0x7f0900a2
-			public const int time = 2131296418;
+			// aapt resource value: 0x7f0900a3
+			public const int time = 2131296419;
 			
 			// aapt resource value: 0x7f090052
 			public const int title = 2131296338;
@@ -3957,9 +3969,6 @@ namespace SurveyMobile.Droid
 			
 			// aapt resource value: 0x7f09008b
 			public const int touch_outside = 2131296395;
-			
-			// aapt resource value: 0x7f09009a
-			public const int txt = 2131296410;
 			
 			// aapt resource value: 0x7f090009
 			public const int up = 2131296265;
@@ -4189,7 +4198,7 @@ namespace SurveyMobile.Droid
 			public const int fragment_resumo = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int layout1 = 2130903090;
+			public const int layout_edit_new_resposta = 2130903090;
 			
 			// aapt resource value: 0x7f030033
 			public const int ListItemFooter = 2130903091;

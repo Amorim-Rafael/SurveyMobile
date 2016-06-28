@@ -4,7 +4,8 @@
 		"Descricao": "Survey 1",
 		"Questoes":[
 			{
-				"QuestaoId": 1,
+        "QuestaoId": 1,
+        "Required": true,
 				"Titulo": "Sexo",
 				"TipoQuestao": 4,
 				"TipoResposta": 1,
@@ -21,7 +22,8 @@
 				]
 			},
 			{
-				"QuestaoId": 2,
+        "QuestaoId": 2,
+        "Required": true,
 				"Titulo": "Faixa Etária",
 				"TipoQuestao": 4,
 				"TipoResposta": 1,
@@ -46,7 +48,8 @@
 				]
 			},
 			{
-				"QuestaoId": 3,
+        "QuestaoId": 3,
+        "Required": true,
 				"Titulo": "Grau de Instrução",
 				"TipoQuestao": 4,
 				"TipoResposta": 1,
@@ -67,7 +70,8 @@
 				]
 			},
 			{
-				"QuestaoId": 4,
+        "QuestaoId": 4,
+        "Required": true,
 				"Titulo": "Renda: juntando toda renda da sua família, aposentadoria, salários e outros recebimentos qual é a renda total?",
 				"TipoQuestao": 4,
 				"TipoResposta": 1,
@@ -88,39 +92,44 @@
 				]
 			}
 		],
-		"Logica":[
-			{
-				"Acao": "jump_3",
-				"Regras":[
-					{
-						"QuestaoId": 1,
-						"Opcoes":[1],
-						"Operador": "+"
-					}
-				]
-			},
-			{
-				"Acao": "jump_4",
-				"Regras":[
-					{
-						"QuestaoId": 2,
-						"Opcoes":[3],
-						"Operador": ">",
-						"Compativo": 20
-					}
-				]
-			}
-			,
-			{
-				"Acao": "finish",
-				"Regras":[
-					{
-						"QuestaoId": 4,
-						"Opcoes":[2],
-						"Operador": "+"
-					}
-				]
-			}
-		]
+    "Logica": [
+      {
+        "Acao": "jump_3",
+        "Regras": [
+          {
+            "QuestaoId": 1,
+            "Opcoes": [ 1 ],
+            "Operador": "+"
+          }
+        ]
+      },
+      {
+        "Acao": "jump_4",
+        "Regras": [
+          {
+            "QuestaoId": 2,
+            "Opcoes": [ 3 ],
+            "Operador": ">",
+            "Compativo": 20
+          }
+        ]
+      },
+      {
+        "Acao": "finish",
+        "Regras": [
+          {
+            "QuestaoId": 4,
+            "Opcoes": [ 2 ],
+            "Operador": "+"
+          }
+        ]
+      }
+    ],
+    "Fluxo": [
+      {
+        "PassarAutomatico": true,
+        "PermitirRetornar": true
+      }
+    ]
 	}
 ]

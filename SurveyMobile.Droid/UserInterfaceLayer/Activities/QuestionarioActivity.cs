@@ -12,7 +12,6 @@ using Newtonsoft.Json;
 using SurveyMobile.Droid.Domain.Survey;
 using SurveyMobile.Droid.UserInterfaceLayer.Adapter;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -47,8 +46,8 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
             TAG = Application.PackageName.ToString();
             try
             {
-                QuestionarioManager questionarioManager = QuestionarioManager.getInstance();
-                questionarioManager.setQuestionarioActivity(this);
+                QuestionarioManager questionarioManager = QuestionarioManager.GetInstance();
+                questionarioManager.SetQuestionarioActivity(this);
                 string json = "";
 
                 AssetManager assets = this.Assets;
@@ -74,7 +73,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
                     _numberPages = _questionario[0].Questoes.Count;
                     _currentPage = _numberPages > 0 ? 0 : -1;
                     _backwardStack = new Stack<int>();
-                    questionarioManager.setStartQuestionario(DateTime.Now.Ticks);
+                    questionarioManager.SetStartQuestionario(DateTime.Now.Ticks);
                 }
 
                 SetupToolBar(_questionario[0].Descricao);
@@ -166,9 +165,9 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
         private void PreencherInforQuestionario()
         {
             QuestionarioManager questionarioManager = new QuestionarioManager();
-            questionarioManager.setQuestionarioActivity(this);
+            questionarioManager.SetQuestionarioActivity(this);
 
-            questionarioManager.setQuestoesList(_questionario[0].Questoes);
+            questionarioManager.SetQuestoesList(_questionario[0].Questoes);
 
             _adapter = new QuestionarioPagerAdapter(SupportFragmentManager, _questionario[0].Questoes);
             _viewPager = FindViewById<ViewPager>(Resource.Id.questions);
@@ -184,7 +183,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Activities
         {
             int item = _viewPager.CurrentItem;
 
-            if (!QuestionarioManager.getInstance().ProceedToNext(item))
+            if (!QuestionarioManager.GetInstance().ProceedToNext(item))
                 Toast.MakeText(this, "Escolha pelo menos uma op\u00e7\u00e3o.", 0).Show();
             else if (item >= _numberPages - 1)
                 OpenFinishSurveyActivity();

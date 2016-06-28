@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\Model\Equipe.cs" />
+    <Compile Include="BusinessLayer\Model\Fluxo.cs" />
     <Compile Include="BusinessLayer\Model\Logica.cs" />
     <Compile Include="BusinessLayer\Model\Papel.cs" />
     <Compile Include="BusinessLayer\Model\ListItem.cs" />

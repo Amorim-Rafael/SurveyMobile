@@ -4,7 +4,10 @@ using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
 using SurveyMobile.Droid.Domain.Survey;
+using SurveyMobile.Droid.UserInterfaceLayer.Layout;
 using SurveyMobile.Droid.UserInterfaceLayer.Widget;
+using System.Collections.Generic;
+using static Android.App.ActionBar;
 using Fragment = Android.Support.V4.App.Fragment;
 
 namespace SurveyMobile.Droid.UserInterfaceLayer.Fragments
@@ -33,23 +36,23 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Fragments
             LinearLayout linearLayout = view.FindViewById<LinearLayout>(Resource.Id.options_layout);
             textView.Text = _questao.getTitulo();
             textView.Selected = true;
-            int page = QuestionarioManager.getInstance().lastOptionSelected(_page);
-            
+            int respostaSelected = QuestionarioManager.GetInstance().LastRespostaSelected(_page);
+            List<Resposta> respostas = _questao.Respostas;
+
+
             for (int i = 0; i < _questao.Respostas.Count; i++)
             {
                 int id = i;
-                QuestionarioWidgetGenerator.createRadioButton(radioGroup, page, id, _questao.Respostas[i].Descricao, page == id);
+                QuestionarioWidgetGenerator.CreateRadioButton(radioGroup, _page, id, respostas[i].Descricao, respostaSelected == id);
             }
-            //int i = 0;
-            //while (i < bundle.Size())
-            //{
-            //    string s = bundle.Get(i.ToString()).ToString();
-            //    bool flag;
-            //    if (page == i)
-            //        flag = true;
-            //    else
-            //        flag = false;
-            //}
+
+            LinearLayout layout = view.FindViewById<LinearLayout>(Resource.Id.root_options_layout);
+            EditNewRespostaLayout editNewRespostaLayout = new EditNewRespostaLayout(view.Context);
+            LayoutParams lparams = new LayoutParams(-1, -2);
+            lparams.SetMargins(14, 0, 0, 0);
+
+            layout.AddView(editNewRespostaLayout, lparams);
+
             return view;
         }
 

@@ -13,6 +13,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         public int TipoResposta { get; set; }
         public int GrupoQuestaoId { get; set; }
         public List<Resposta> Respostas { get; set; }
+        public bool Obrigatoria { get; set; }
         //private int _questaoId { get; set; }
         //private string _titulo { get; set; }
         //private int _tipoQuestao { get; set; }

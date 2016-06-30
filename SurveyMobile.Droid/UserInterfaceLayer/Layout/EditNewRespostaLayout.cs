@@ -20,6 +20,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Layout
         {
             _inflater.Inflate(Resource.Layout.layout_edit_new_resposta, this, true);
             EditText editText = FindViewById<EditText>(Resource.Id.new_resposta_label);
+            editText.Visibility = ViewStates.Invisible;
             editText.EditorAction += EditText_EditorAction;
         }
 

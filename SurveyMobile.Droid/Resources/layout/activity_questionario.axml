@@ -25,18 +25,18 @@
         android:layout_marginLeft="5.0dip"
         android:layout_marginRight="5.0dip"
         android:layout_below="@id/survey_progress_bar" />
-<!--<br.com.datainfo.view.NonSwipeableViewPager
-        android:id="@+id/questions"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/footer_bar"
-        android:layout_below="@+id/survey_progress_text" />-->
-    <android.support.v4.view.ViewPager
+    <SurveyMobile.Droid.UserInterfaceLayer.Views.NonSwipeableViewPager
         android:id="@+id/questions"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/footer_bar"
         android:layout_below="@+id/survey_progress_text" />
+<!--<android.support.v4.view.ViewPager
+        android:id="@+id/questions"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/footer_bar"
+        android:layout_below="@+id/survey_progress_text" />-->
     <LinearLayout
         android:orientation="horizontal"
         android:id="@+id/footer_bar"

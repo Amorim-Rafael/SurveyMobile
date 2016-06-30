@@ -116,6 +116,7 @@
     <Compile Include="Domain\Send\SendQuestao.cs" />
     <Compile Include="Domain\Send\SendQuestionario.cs" />
     <Compile Include="Domain\Send\SendResposta.cs" />
+    <Compile Include="Domain\Survey\Fluxo.cs" />
     <Compile Include="Domain\Survey\Logica.cs" />
     <Compile Include="Domain\Survey\Questao.cs" />
     <Compile Include="Domain\Survey\Questionario.cs" />

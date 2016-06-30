@@ -12,6 +12,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         public List<Questao> Questoes { get; set; }
         public List<Logica> Logica { get; set; }
         public string Json { get; set; }
+        public Fluxo Fluxo { get; set; }
 
         //public void setQuestoes(List<Questionario> questionario)
         //{

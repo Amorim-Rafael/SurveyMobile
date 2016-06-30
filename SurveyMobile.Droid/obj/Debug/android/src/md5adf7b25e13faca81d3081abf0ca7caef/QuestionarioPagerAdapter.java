@@ -2,7 +2,7 @@ package md5adf7b25e13faca81d3081abf0ca7caef;
 
 
 public class QuestionarioPagerAdapter
-	extends android.support.v4.app.FragmentPagerAdapter
+	extends android.support.v4.app.FragmentStatePagerAdapter
 	implements
 		mono.android.IGCUserPeer
 {

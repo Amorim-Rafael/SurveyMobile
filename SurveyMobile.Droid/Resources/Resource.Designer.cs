@@ -4477,8 +4477,20 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f070046
 			public const int map = 2131165254;
 			
+			// aapt resource value: 0x7f070047
+			public const int new_expense = 2131165255;
+			
+			// aapt resource value: 0x7f070048
+			public const int new_survey_text = 2131165256;
+			
 			// aapt resource value: 0x7f07003c
 			public const int next_text = 2131165244;
+			
+			// aapt resource value: 0x7f070049
+			public const int no_text = 2131165257;
+			
+			// aapt resource value: 0x7f07004a
+			public const int nothing_to_send = 2131165258;
 			
 			// aapt resource value: 0x7f070001
 			public const int place_autocomplete_clear_button = 2131165185;
@@ -4489,8 +4501,50 @@ namespace SurveyMobile.Droid
 			// aapt resource value: 0x7f07003b
 			public const int prev_text = 2131165243;
 			
+			// aapt resource value: 0x7f07004b
+			public const int remove_text = 2131165259;
+			
+			// aapt resource value: 0x7f07004c
+			public const int save_text = 2131165260;
+			
+			// aapt resource value: 0x7f07004d
+			public const int settings = 2131165261;
+			
+			// aapt resource value: 0x7f07004e
+			public const int signin = 2131165262;
+			
 			// aapt resource value: 0x7f070034
 			public const int status_bar_notification_info_overflow = 2131165236;
+			
+			// aapt resource value: 0x7f07004f
+			public const int store_picture_message = 2131165263;
+			
+			// aapt resource value: 0x7f070050
+			public const int store_picture_title = 2131165264;
+			
+			// aapt resource value: 0x7f070051
+			public const int survey = 2131165265;
+			
+			// aapt resource value: 0x7f070052
+			public const int survey_are_you_shure_question_msg = 2131165266;
+			
+			// aapt resource value: 0x7f070053
+			public const int title_activity_expense = 2131165267;
+			
+			// aapt resource value: 0x7f070054
+			public const int title_activity_expense_data = 2131165268;
+			
+			// aapt resource value: 0x7f070055
+			public const int title_activity_login = 2131165269;
+			
+			// aapt resource value: 0x7f070056
+			public const int update_webservice = 2131165270;
+			
+			// aapt resource value: 0x7f070057
+			public const int upload_data = 2131165271;
+			
+			// aapt resource value: 0x7f070058
+			public const int yes_text = 2131165272;
 			
 			static String()
 			{
@@ -4510,6 +4564,9 @@ namespace SurveyMobile.Droid
 			
 			// aapt resource value: 0x7f0b0087
 			public const int AlertDialog_AppCompat_Light = 2131427463;
+			
+			// aapt resource value: 0x7f0b015a
+			public const int AlertDialogStyle = 2131427674;
 			
 			// aapt resource value: 0x7f0b0088
 			public const int Animation_AppCompat_Dialog = 2131427464;

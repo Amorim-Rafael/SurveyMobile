@@ -3534,7 +3534,11 @@ containing a value of this type.
         public static final int invalid_content_msg=0x7f070044;
         public static final int invalid_file_msg=0x7f070045;
         public static final int map=0x7f070046;
+        public static final int new_expense=0x7f070047;
+        public static final int new_survey_text=0x7f070048;
         public static final int next_text=0x7f07003c;
+        public static final int no_text=0x7f070049;
+        public static final int nothing_to_send=0x7f07004a;
         /**  Description of the button that clears the search input when searching for places. 
          */
         public static final int place_autocomplete_clear_button=0x7f070001;
@@ -3542,11 +3546,26 @@ containing a value of this type.
          */
         public static final int place_autocomplete_search_hint=0x7f070000;
         public static final int prev_text=0x7f07003b;
+        public static final int remove_text=0x7f07004b;
+        public static final int save_text=0x7f07004c;
+        public static final int settings=0x7f07004d;
+        public static final int signin=0x7f07004e;
         public static final int status_bar_notification_info_overflow=0x7f070034;
+        public static final int store_picture_message=0x7f07004f;
+        public static final int store_picture_title=0x7f070050;
+        public static final int survey=0x7f070051;
+        public static final int survey_are_you_shure_question_msg=0x7f070052;
+        public static final int title_activity_expense=0x7f070053;
+        public static final int title_activity_expense_data=0x7f070054;
+        public static final int title_activity_login=0x7f070055;
+        public static final int update_webservice=0x7f070056;
+        public static final int upload_data=0x7f070057;
+        public static final int yes_text=0x7f070058;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f0b0086;
         public static final int AlertDialog_AppCompat_Light=0x7f0b0087;
+        public static final int AlertDialogStyle=0x7f0b015a;
         public static final int Animation_AppCompat_Dialog=0x7f0b0088;
         public static final int Animation_AppCompat_DropDownUp=0x7f0b0089;
         public static final int Animation_Design_BottomSheetDialog=0x7f0b013f;

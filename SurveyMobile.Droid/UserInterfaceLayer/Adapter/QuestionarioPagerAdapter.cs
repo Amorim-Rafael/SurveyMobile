@@ -1,4 +1,3 @@
-using System;
 using Android.Support.V4.App;
 using System.Collections.Generic;
 using SurveyMobile.Droid.Domain.Survey;
@@ -6,9 +5,10 @@ using SurveyMobile.Droid.UserInterfaceLayer.Fragments;
 
 namespace SurveyMobile.Droid.UserInterfaceLayer.Adapter
 {
-    public class QuestionarioPagerAdapter : FragmentPagerAdapter
+    public class QuestionarioPagerAdapter : FragmentStatePagerAdapter//FragmentPagerAdapter
     {
         private List<Questao> _questoes;
+        private OneChoiceQuestionFragment _oneChoiceQuestionFragment;
 
         public QuestionarioPagerAdapter(FragmentManager fragmentmanager, List<Questao> questoes) : base(fragmentmanager)
         {
@@ -24,14 +24,13 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Adapter
         }
 
         public override Fragment GetItem(int position)
-        {
-            OneChoiceQuestionFragment oneChoiceQuestionFragment = null;
+        {            
             if (_questoes == null)
                 return null;
 
             Questao questao = _questoes[position];
-            if (questao.TipoQuestao == 4) //if (questao.TipoQuestao == 0)
-                oneChoiceQuestionFragment = OneChoiceQuestionFragment.newInstance(position, questao);
+            if (questao.TipoQuestao == 4)
+                _oneChoiceQuestionFragment = OneChoiceQuestionFragment.newInstance(position, questao);
             else
             {
                 if (questao.TipoQuestao == 1)
@@ -47,7 +46,7 @@ namespace SurveyMobile.Droid.UserInterfaceLayer.Adapter
 
                 }
             }
-            return oneChoiceQuestionFragment;
+            return _oneChoiceQuestionFragment;
         }
     }
 }

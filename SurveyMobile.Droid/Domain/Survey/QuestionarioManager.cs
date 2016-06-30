@@ -96,24 +96,35 @@ namespace SurveyMobile.Droid.Domain.Survey
 
         public void UpdateFirstRespostaSelected(int page, int option)
         {
-            List<string> options;
-            if (_respostaSelected.Count > 0)
+            List<string> respostas = _respostaSelected.Count > 0 ? _respostaSelected[page] : _respostaSelected.SelectMany(r => r.Value).ToList();
+            if (respostas == null)
             {
-                options = _respostaSelected[page];
-                if (options == null)
-                {
-                    options = new List<string>();
-                    options.Add(option.ToString());
-                }
-                else
-                    options.Insert(0, option.ToString());
+                respostas = new List<string>();
+                respostas.Add(option.ToString());
             }
             else
-            {
-                options = new List<string>();
-                options.Add(option.ToString());
-            }
-            _respostaSelected.Add(page, options);
+                respostas.Insert(0, option.ToString());
+
+            _respostaSelected.Add(page, respostas);
+
+            //List<string> options;
+            //if (_respostaSelected.Count > 0)
+            //{
+            //    options = _respostaSelected[page];
+            //    if (options == null)
+            //    {
+            //        options = new List<string>();
+            //        options.Add(option.ToString());
+            //    }
+            //    else
+            //        options.Insert(0, option.ToString());
+            //}
+            //else
+            //{
+            //    options = new List<string>();
+            //    options.Add(option.ToString());
+            //}
+            //_respostaSelected.Add(page, options);
         }
 
         public void RemoveRespostaSelected(int page, int option)
@@ -170,7 +181,7 @@ namespace SurveyMobile.Droid.Domain.Survey
             if (_respostaDynamic.ContainsKey(page))
                 return _respostaDynamic[page];
             return respostaDynamic;
-        }        
+        }
 
         private List<string> InitOpenRespostaList(int page, int size)
         {
@@ -278,7 +289,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         public void Clear()
         {
             _respostaSelected = new Dictionary<int, List<string>>();
-            _respostaDynamic  = new Dictionary<int, List<RespostaDynamic>>();
+            _respostaDynamic = new Dictionary<int, List<RespostaDynamic>>();
             _openOptions = new Dictionary<int, List<string>>();
             _gridOptions = new Dictionary<int, Dictionary<int, string>>();
             _lastFormPositionGrid = new Dictionary<int, int>();
@@ -287,19 +298,24 @@ namespace SurveyMobile.Droid.Domain.Survey
             _questionarioAtual = new SendQuestionario();
         }
 
-        public bool ProceedToNext(int i)
+        public bool ProceedToNext(int current)
         {
-            try
+
+            if (_questoes[current].Obrigatoria)
             {
-                if (_questoes[i].TipoQuestao != 1) { return true; }
-                if (_respostaSelected[i].Count > 0) { return true; }
-                return false;
+                try
+                {
+                    if (_respostaSelected[current].Count > 0)
+                        return true;
+                    return false;
+                }
+                catch (Exception e)
+                {
+                    Log.Error(TAG, e.Message, e);
+                    return false;
+                }
             }
-            catch (Exception e)
-            {
-                Log.Error(TAG, e.Message, e);
-                return false;
-            }
+            return false;
         }
 
         public int NextPage(int current, List<Logica> logica)

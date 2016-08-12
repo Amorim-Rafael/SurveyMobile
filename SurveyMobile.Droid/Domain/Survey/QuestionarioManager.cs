@@ -359,6 +359,16 @@ namespace SurveyMobile.Droid.Domain.Survey
                             temp &= true;
                             continue;
                         }
+                        else if (questao.TipoQuestao == 3)
+                        {
+                            temp &= true;
+                            continue;
+                        }
+                        else if (questao.TipoQuestao == 4)
+                        {
+                            temp &= true;
+                            continue;
+                        }
                         else
                         {
                             continue;
@@ -571,7 +581,7 @@ namespace SurveyMobile.Droid.Domain.Survey
         {
             for (int i = 0; i < _questoes.Count; i++)
             {
-                if (_questoes[i].getQuestaoId() == questaoId)
+                if (_questoes[i].QuestaoId == questaoId)
                     return i;
             }
             return -1;

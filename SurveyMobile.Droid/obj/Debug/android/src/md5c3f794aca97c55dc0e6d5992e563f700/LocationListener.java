@@ -7,7 +7,8 @@ public class LocationListener
 		mono.android.IGCUserPeer,
 		com.google.android.gms.location.LocationListener
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onLocationChanged:(Landroid/location/Location;)V:GetOnLocationChanged_Landroid_location_Location_Handler:Android.Gms.Location.ILocationListenerInvoker, Xamarin.GooglePlayServices.Location\n" +
@@ -31,7 +32,7 @@ public class LocationListener
 
 	private native void n_onLocationChanged (android.location.Location p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

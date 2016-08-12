@@ -7,7 +7,8 @@ public class BaseObject
 		mono.android.IGCUserPeer,
 		java.io.Serializable
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_ReadObjectDummy:(Ljava/io/ObjectInputStream;)V:__export__\n" +
@@ -40,7 +41,7 @@ public class BaseObject
 
 	private native void n_WriteObjectDummy (java.io.ObjectOutputStream p0);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)
